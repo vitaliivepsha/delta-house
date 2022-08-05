@@ -74,6 +74,12 @@ main {
   position: relative;
 }
 
+.container-lg{
+  width: 1920px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .container,
 .row {
   &:before,
