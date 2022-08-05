@@ -70,7 +70,13 @@ main {
 
 .section {
   clear: both;
-  overflow-x: hidden;
+  position: relative;
+}
+
+.container-lg{
+  width: 1920px;
+  max-width: 100%;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -79,6 +85,68 @@ main {
   &:before,
   &:after {
     display: none;
+  }
+}
+
+.grid{
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  .col-lg{
+    display: flex;
+    width: 66%;
+    height: 100%;
+    position: relative;
+    .col-left{
+      width: calc(100% - 457px);
+      height: 100%;
+      position: relative;
+    }
+    .col-right{
+      width: 457px;
+      height: 100%;
+      position: relative;
+      &:before{
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: rgba($dark, 0.08);
+      }
+      >svg{
+        position: absolute;
+        left: -7px;
+        top: -8px;
+        z-index: -1;
+      }
+    }
+  }
+  .col-sm{
+    display: flex;
+    width: 44%;
+    height: 100%;
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background-color: rgba($dark, 0.08);
+    }
+    >svg{
+      position: absolute;
+      left: -7px;
+      top: -8px;
+      z-index: -1;
+    }
   }
 }
 

@@ -32,6 +32,27 @@ $(function () {
         $(window).trigger('resize');
     }, 100);
 
+    // search
+
+    $('.header-search__btn').click(function () {
+        $(this).closest('.header-search').addClass('active');
+    });
+
+    $('.header-search__close').click(function () {
+        $(this).closest('.header-search').removeClass('active');
+    });
+
+    // first screen img move
+
+    $('.main-pic').mousemove(function(e){
+        var $this = $(this),
+            winWidth = window.innerWidth,
+            winHeight = window.innerHeight,
+            relativeX = e.pageX / (winWidth / 20) + 'px',
+            relativeY = e.pageY / (winHeight / 20) + 'px';
+        $this.css('transform', 'translate(calc(-50% + ' + relativeX + '), calc(-50% + ' + relativeY + '))');
+    });
+
     // mobile menu
 
     var touch = $('.mobile-menu__btn');
