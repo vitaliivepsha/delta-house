@@ -1,0 +1,128 @@
+.mfp-bg {
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 10005;
+  opacity: 1;
+}
+
+.mfp-wrap {
+  z-index: 10006;
+}
+
+.mfp-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.popup{
+  position: relative;
+  margin: 0 auto;
+  width: 810px;
+  max-width: calc(100vw - 30px);
+  padding: 72px 45px 45px;
+  box-shadow: 10px 20px 60px rgba(179, 192, 216, 0.22);
+  border-radius: 20px;
+  background: #fff;
+  transition: linear .2s;
+  @include bp(xs) {
+    padding: 72px 15px 40px;
+  }
+  .mfp-close {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: linear .2s;
+    right: 20px;
+    top: 17px;
+    @include bp(xs) {
+      top: 7px;
+      right: 10px;
+    }
+    svg {
+      pointer-events: none;
+      @include bp(xs) {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    &:hover {
+      svg{
+        path{
+          fill: $accent;
+        }
+      }
+    }
+  }
+  >svg{
+    position: absolute;
+    top: 43px;
+    left: 42px;
+    @include bp(xs) {
+      width: 300px;
+      height: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.popup-content{
+  position: relative;
+  z-index: 1;
+}
+
+.popup-title {
+  margin: 0 auto 46px;
+  text-align: center;
+  font-size: 40px;
+  line-height: 50px;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  @include bp(xs) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  br{
+    @include bp(xs) {
+      display: none;
+    }
+  }
+  span{
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      background-color: #FFDDA5;
+      width: calc(100% + 6px);
+      height: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 7px;
+      z-index: -1;
+      @include bp(xs) {
+        height: 4px;
+        bottom: 5px;
+      }
+    }
+  }
+}
+
+.popup-form{
+  margin: 0 auto;
+  width: 458px;
+  max-width: 100%;
+  .input-wrapper{
+    margin-bottom: 18px;
+    .input{
+      text-align: center;
+    }
+  }
+  .btn{
+    margin: 34px auto 0;
+  }
+}

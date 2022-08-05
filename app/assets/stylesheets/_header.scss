@@ -1,0 +1,11 @@
+.header {
+  transition: linear 0.3s;
+  padding: 35px 0;
+  @include bp(md) {
+    height: 86px;
+    padding: 15px 0;
+  }
+  @include bp(xs) {
+    background-color: #fff;
+  }
+}
