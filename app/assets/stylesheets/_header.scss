@@ -94,6 +94,12 @@
 .header-search{
   position: relative;
   margin-left: 48px;
+  &.active{
+    .header-search__form{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .header-search__btn{
@@ -105,6 +111,76 @@
     svg{
       path{
         fill: $red;
+      }
+    }
+  }
+}
+
+.header-search__form{
+  display: flex;
+  position: absolute;
+  width: 380px;
+  background-color: $light;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-bottom-color: $red;
+    padding-left: 37px;
+    padding-right: 30px;
+    font-size: 14px;
+    line-height: 17px;
+    background-color: transparent;
+    &::placeholder{
+      color: #000;
+      opacity: 0.4;
+    }
+    &:focus{
+      &::placeholder{
+        opacity: 0;
+      }
+    }
+  }
+  button{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    border: none;
+    font-size: 0;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover{
+      svg{
+        path{
+          fill: $red;
+        }
+      }
+    }
+  }
+}
+
+.header-search__close{
+  width: 20px;
+  height: 16px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  &:hover{
+    svg{
+      path{
+        fill: $dark;
       }
     }
   }

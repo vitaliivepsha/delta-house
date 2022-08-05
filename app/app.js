@@ -31,6 +31,16 @@ $(function () {
         $(window).trigger('resize');
     }, 100);
 
+    // search
+
+    $('.header-search__btn').click(function () {
+        $(this).closest('.header-search').addClass('active');
+    });
+
+    $('.header-search__close').click(function () {
+        $(this).closest('.header-search').removeClass('active');
+    });
+
     // mobile menu
 
     var touch = $('.mobile-menu__btn');
