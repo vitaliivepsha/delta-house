@@ -158,6 +158,7 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    transition: linear .3s;
     &:hover{
       svg{
         path{
