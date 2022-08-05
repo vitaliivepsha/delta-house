@@ -1,9 +1,42 @@
 .about-us {
 
+
+  & > .container {
+    position: relative;
+    padding-top: 80px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 699px;
+      z-index: 1;
+      width: 1px;
+      height: 100%;
+      background-color: rgba(56, 59, 59, 0.08);
+      @include bp(lg) {
+        left: 575px;
+        }
+    }
+    & > svg {
+      position: absolute;
+      display: block;
+      top: -8px;
+      left: 692px;
+    }
+  }
+
+
   & .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  & .col-md-7 {
+    display: flex;
+    align-items: end;
   }
 }
 
@@ -12,15 +45,19 @@
   z-index: 1;
   display: flex;
   align-items: end;
-  min-height: 380px;
+  min-height: 400px;
   width: 100%;
   max-width: 1064px;
-  margin-bottom: 12px;
+  margin-bottom: -9px;
   padding-bottom: 30px;
 }
 
 .about-us__wrapper {
   max-width: 454px;
+  @include bp(md) {
+    margin-left: -43px;
+    }
+
 }
 
 .about-us__pic {
@@ -29,6 +66,10 @@
   right: 0;
   max-width: 760px;
   z-index: -1;
+  @include bp(md) {
+    max-width: 728px;
+    right: -42px;
+    }
 
   & picture {
     width: 100%;
@@ -64,6 +105,9 @@
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAaSURBVHgBjcQxDQAAAMKwBf+eYRLoUaqgtwG/NgQPleA0FwAAAABJRU5ErkJggg==");
     background-repeat: repeat-x;
     background-position: left bottom 18px;
+    @include bp(md) {
+      font-size: 56px;
+      }
   }
 
   & small {
@@ -83,6 +127,39 @@
     font-size: 18px;
     line-height: 140%;
     color: #000;
+  }
+}
+
+.about-us__nums {
+  display: flex;
+
+  & div {
+    width: 197px;
+    @include bp(lg) {
+      width: 157px;
+      }
+    & b {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 48px;
+      text-transform: uppercase;
+      @include bp(lg) {
+        font-size: 38px;
+        }
+    }
+
+    & span {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      color: #000000;
+      @include bp(lg) {
+        font-size: 15px;
+        }
+    }
   }
 }
 
