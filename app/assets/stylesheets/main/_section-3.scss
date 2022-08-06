@@ -148,6 +148,7 @@
 .slider-dots{
   width: 80px;
   margin: 4px 16px;
+  pointer-events: none;
   .slick-dots{
     width: 100%;
     display: flex;
