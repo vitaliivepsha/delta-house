@@ -5,7 +5,7 @@
       @content;
     }
   } @else if $point == xxl {
-    @media only screen and (max-width: 1359px) {
+    @media only screen and (max-width: 1519px) {
       @content;
     }
   } @else if $point == xl {

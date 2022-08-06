@@ -12,12 +12,18 @@
 
 .slider{
   width: 1280px;
+  @include bp(xxxl) {
+    width: 66.6vw;
+  }
   .slick-list{
     overflow: visible;
   }
   .slick-slide{
     &.slick-current{
       width: 1280px;
+      @include bp(xxxl) {
+        width: 66.6vw;
+      }
       .slide{
         >a{
           right: auto;
@@ -31,10 +37,19 @@
       }
       +.slick-slide{
         width: 320px;
+        @include bp(xxxl) {
+          width: calc(33.3vw / 2);
+        }
         +.slick-slide{
           width: 160px;
+          @include bp(xxxl) {
+            width: calc(33.3vw / 4);
+          }
           +.slick-slide{
             width: 160px;
+            @include bp(xxxl) {
+              width: calc(33.3vw / 4);
+            }
           }
         }
       }
@@ -50,6 +65,9 @@
       height: 620px;
       overflow: hidden;
       position: relative;
+      @include bp(xxxl) {
+        height: 33.3vw;
+      }
       >img{
         height: 100%;
         object-fit: cover;
