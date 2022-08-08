@@ -1,8 +1,15 @@
 .main-section{
   height: 716px;
   z-index: 1;
+  @include bp(xl) {
+    height: auto;
+    display: flex;
+  }
   .container-lg{
     height: 100%;
+    @include bp(xl) {
+      height: auto;
+    }
     .grid{
       .col-lg{
         .col-right{
@@ -25,6 +32,20 @@
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
+  @include bp(xl) {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 56px auto 0;
+    max-width: calc(100vw - 48px);
+  }
+  img{
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
 .main-wrapper{
@@ -34,6 +55,10 @@
   top: 0;
   width: 100%;
   padding: 0 48px;
+  @include bp(xl) {
+    padding: 0 24px;
+    position: static;
+  }
 }
 
 .main-pic__wrapper{
@@ -43,6 +68,12 @@
   overflow: hidden;
   position: relative;
   cursor: url('../images/icons/cursor.svg'), auto;
+  @include bp(xl) {
+    margin-top: 17px;
+    margin-bottom: 80px;
+    width: calc(59.85vw - 48px);
+    height: 32vw;
+  }
 }
 
 .main-pic{
@@ -66,6 +97,9 @@
 .main-text{
   margin-top: 404px;
   width: 195px;
+  @include bp(md) {
+    margin-top: 45vw;
+  }
   p{
     text-align: right;
     margin-bottom: 0;

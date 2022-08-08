@@ -1,6 +1,9 @@
 .slider-section{
   background-color: $dark;
   padding-bottom: 164px;
+  @include bp(xl) {
+    padding-bottom: 128px;
+  }
   .container-lg{
     overflow: hidden;
   }
@@ -29,6 +32,13 @@
           right: auto;
           span{
             font-size: 40px;
+            margin-right: 20px;
+            @include bp(md) {
+              font-size: 32px;
+            }
+            @media only screen and (max-width: 799px) {
+              font-size: 28px;
+            }
           }
           svg{
             display: block;
@@ -83,6 +93,9 @@
         right: 44px;
         left: auto;
         transition: linear .4s;
+        @include bp(xl) {
+          right: 24px;
+        }
         &:hover{
           text-decoration: none;
           color: $red;
@@ -97,17 +110,31 @@
           }
         }
         span{
-          margin-right: 20px;
           font-weight: 800;
           font-size: 0;
           line-height: 48px;
           text-transform: uppercase;
+          margin-right: 0;
+          @include bp(md) {
+            line-height: 38px;
+          }
           &:first-letter{
             font-size: 40px;
+            @include bp(md) {
+              font-size: 32px;
+            }
+            @media only screen and (max-width: 799px) {
+              font-size: 28px;
+              line-height: 34px;
+            }
           }
         }
         svg{
           display: none;
+          @include bp(md) {
+            width: 24px;
+            height: 24px;
+          }
         }
       }
     }

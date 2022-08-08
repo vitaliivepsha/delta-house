@@ -4,19 +4,49 @@
   .container-lg{
     height: 100%;
     padding-bottom: 74px;
+    @include bp(xl) {
+      padding-bottom: 0;
+      height: inherit;
+    }
     .grid{
       position: relative;
+      @include bp(xl) {
+        height: inherit;
+      }
       .col-lg{
+        @include bp(xl) {
+          height: inherit;
+        }
+        .col-left{
+          @include bp(xl) {
+            display: none;
+          }
+        }
         .col-right{
+          @include bp(xl) {
+            width: 100%;
+            padding-left: 24px;
+          }
           &:before{
             background-color: rgba(0, 0, 0, 0.1);
+            @include bp(xl) {
+              display: none;
+            }
           }
           >svg{
             top: -7px;
+            @include bp(xl) {
+              display: none;
+            }
           }
         }
       }
       .col-sm{
+        @include bp(xl) {
+          height: inherit;
+          display: flex;
+          align-items: flex-start;
+        }
         &:before{
           background-color: rgba(0, 0, 0, 0.1);
         }
@@ -33,6 +63,10 @@
   margin-bottom: 32px;
   position: relative;
   right: calc(100% - 224px);
+  @include bp(xl) {
+    margin-top: 64px;
+    right: auto;
+  }
 }
 
 .info-subtitle {
@@ -73,6 +107,10 @@
   line-height: 140%;
   width: 224px;
   color: $light;
+  @include bp(xl) {
+    margin-left: calc(100% - 333px);
+    margin-bottom: 64px;
+  }
   p{
     margin-bottom: 16px;
     &:last-child{
