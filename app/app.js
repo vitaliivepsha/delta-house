@@ -117,7 +117,8 @@ $(function () {
         $('body').toggleClass('cat-opened');
         setTimeout(function () {
             picPos();
-        }, 1000);
+        }, 1500);
+        $('.menu-catalog__main .container-lg').trigger('scroll');
     });
 
     $('.has-children').click(function () {

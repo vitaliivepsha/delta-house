@@ -199,6 +199,9 @@ main {
 // Header
 @import "header";
 
+// Menu catalog
+@import "menu-catalog";
+
 // Main
 @import "main/section-1";
 @import "main/section-2";
@@ -206,9 +209,6 @@ main {
 
 // Footer
 @import "footer";
-
-// Menu catalog
-@import "menu-catalog";
 
 // Pages
 @import "contacts";
