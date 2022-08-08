@@ -18,18 +18,36 @@
   @include bp(xxxl) {
     width: 66.6vw;
   }
+  @include bp(sm) {
+    width: 100%;
+  }
   .slick-list{
     overflow: visible;
   }
   .slick-slide{
+    @include bp(sm) {
+      height: 56vw;
+    }
+    @include bp(xs) {
+      height: 64.5vw;
+    }
     &.slick-current{
       width: 1280px;
       @include bp(xxxl) {
         width: 66.6vw;
       }
+      @include bp(sm) {
+        width: 100vw;
+      }
       .slide{
         >a{
           right: auto;
+          @include bp(sm) {
+            left: 24px !important;
+          }
+          @include bp(xxs) {
+            left: 16px !important;
+          }
           span{
             font-size: 40px;
             margin-right: 20px;
@@ -38,6 +56,12 @@
             }
             @media only screen and (max-width: 799px) {
               font-size: 28px;
+            }
+            @include bp(xs) {
+              font-size: 24px;
+            }
+            @include bp(xxs) {
+              font-size: 20px;
             }
           }
           svg{
@@ -50,15 +74,24 @@
         @include bp(xxxl) {
           width: calc(33.3vw / 2);
         }
+        @include bp(sm) {
+          width: 100vw;
+        }
         +.slick-slide{
           width: 160px;
           @include bp(xxxl) {
             width: calc(33.3vw / 4);
           }
+          @include bp(sm) {
+            width: 100vw;
+          }
           +.slick-slide{
             width: 160px;
             @include bp(xxxl) {
               width: calc(33.3vw / 4);
+            }
+            @include bp(sm) {
+              width: 100vw;
             }
           }
         }
@@ -71,6 +104,11 @@
         }
       }
     }
+    > div{
+      @include bp(sm) {
+        height: 100%;
+      }
+    }
     .slide{
       height: 620px;
       overflow: hidden;
@@ -78,11 +116,17 @@
       @include bp(xxxl) {
         height: 33.3vw;
       }
+      @include bp(sm) {
+        height: 100%;
+      }
       >img{
         height: 100%;
         object-fit: cover;
         transform: scale(1);
         transition: linear 1.2s;
+        @include bp(sm) {
+          width: 100%;
+        }
       }
       >a{
         display: flex;
@@ -95,6 +139,10 @@
         transition: linear .4s;
         @include bp(xl) {
           right: 24px;
+        }
+        @include bp(sm) {
+          right: auto;
+          bottom: 24px;
         }
         &:hover{
           text-decoration: none;
@@ -118,6 +166,21 @@
           @include bp(md) {
             line-height: 38px;
           }
+          @media only screen and (max-width: 799px) {
+            font-size: 28px;
+            line-height: 34px;
+          }
+          @include bp(sm) {
+            font-size: 28px;
+          }
+          @include bp(xs) {
+            font-size: 24px;
+            line-height: 29px;
+          }
+          @include bp(xxs) {
+            font-size: 20px;
+            line-height: 26px;
+          }
           &:first-letter{
             font-size: 40px;
             @include bp(md) {
@@ -127,6 +190,14 @@
               font-size: 28px;
               line-height: 34px;
             }
+            @include bp(xs) {
+              font-size: 24px;
+              line-height: 29px;
+            }
+            @include bp(xxs) {
+              font-size: 20px;
+              line-height: 26px;
+            }
           }
         }
         svg{
@@ -134,6 +205,14 @@
           @include bp(md) {
             width: 24px;
             height: 24px;
+          }
+          @include bp(xs) {
+            width: 17px;
+            height: 17px;
+          }
+          @include bp(xxs) {
+            width: 15px;
+            height: 15px;
           }
         }
       }
@@ -177,6 +256,13 @@
   display: flex;
   align-items: flex-end;
   margin-top: 32px;
+  @include bp(sm) {
+    margin-top: 16px;
+    left: 24px !important;
+  }
+  @include bp(xxs) {
+    left: 16px !important;
+  }
 }
 
 .slider-arrow{

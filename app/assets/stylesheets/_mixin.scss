@@ -29,7 +29,7 @@
       @content;
     }
   } @else if $point == xxs {
-    @media only screen and (max-width: 375px) {
+    @media only screen and (max-width: 359px) {
       @content;
     }
   }

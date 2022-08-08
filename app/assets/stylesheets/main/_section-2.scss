@@ -8,14 +8,25 @@
       padding-bottom: 0;
       height: inherit;
     }
+    @include bp(sm) {
+      height: auto;
+    }
     .grid{
       position: relative;
       @include bp(xl) {
         height: inherit;
       }
+      @include bp(sm) {
+        flex-direction: column-reverse;
+        height: auto;
+      }
       .col-lg{
         @include bp(xl) {
           height: inherit;
+        }
+        @include bp(sm) {
+          width: 100%;
+          height: auto;
         }
         .col-left{
           @include bp(xl) {
@@ -26,6 +37,12 @@
           @include bp(xl) {
             width: 100%;
             padding-left: 24px;
+          }
+          @include bp(sm) {
+            padding: 32px 24px 64px;
+          }
+          @include bp(xs) {
+            padding: 32px 16px 64px;
           }
           &:before{
             background-color: rgba(0, 0, 0, 0.1);
@@ -47,6 +64,11 @@
           display: flex;
           align-items: flex-start;
         }
+        @include bp(sm) {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
         &:before{
           background-color: rgba(0, 0, 0, 0.1);
         }
@@ -66,6 +88,23 @@
   @include bp(xl) {
     margin-top: 64px;
     right: auto;
+  }
+  @include bp(sm) {
+    padding: 0 24px;
+  }
+  @include bp(xs) {
+    padding: 0 16px;
+  }
+  &.hidden-mob{
+    @include bp(sm) {
+      display: none;
+    }
+  }
+  &.visible-mob{
+    display: none;
+    @include bp(sm) {
+      display: block;
+    }
   }
 }
 
@@ -93,12 +132,24 @@
     background-position: left bottom 18px;
     @include bp(md) {
       font-size: 56px;
+      background-position: left bottom 16px;
+    }
+    @include bp(xs) {
+      font-size: 44px;
+      background-position: left bottom 12px;
+    }
+    @include bp(xxs) {
+      font-size: 38px;
+      background-position: left bottom 11px;
     }
   }
   small {
     position: relative;
     bottom: 32px;
     right: 10px;
+    @include bp(xs) {
+      bottom: 24px;
+    }
   }
 }
 
@@ -110,6 +161,10 @@
   @include bp(xl) {
     margin-left: calc(100% - 333px);
     margin-bottom: 64px;
+  }
+  @include bp(sm) {
+    width: 100%;
+    margin: 0;
   }
   p{
     margin-bottom: 16px;

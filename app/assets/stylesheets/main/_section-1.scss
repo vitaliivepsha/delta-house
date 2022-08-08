@@ -5,13 +5,26 @@
     height: auto;
     display: flex;
   }
+  @include bp(sm) {
+    padding-bottom: 64px;
+  }
   .container-lg{
     height: 100%;
     @include bp(xl) {
       height: auto;
     }
+    @include bp(sm) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
     .grid{
+      @include bp(sm) {
+        position: static;
+      }
       .col-lg{
+        @include bp(sm) {
+          width: calc(50vw - 16px);
+        }
         .col-right{
           &:before{
             opacity: 0;
@@ -19,6 +32,17 @@
           >svg{
             opacity: 0;
           }
+        }
+      }
+      .col-sm{
+        @include bp(sm) {
+          width: calc(50vw + 16px);
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 24px;
+        }
+        @include bp(xs) {
+          padding-right: 16px;
         }
       }
     }
@@ -32,6 +56,7 @@
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
+  object-fit: contain;
   @include bp(xl) {
     display: flex;
     justify-content: center;
@@ -42,9 +67,17 @@
     margin: 56px auto 0;
     max-width: calc(100vw - 48px);
   }
-  img{
-    max-width: 100%;
-    object-fit: contain;
+  @include bp(xs) {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    margin-top: 24px;
+    display: none;
+  }
+  &__mob {
+    display: none;
+    @include bp(xs) {
+      display: block;
+    }
   }
 }
 
@@ -58,6 +91,9 @@
   @include bp(xl) {
     padding: 0 24px;
     position: static;
+  }
+  @include bp(xs) {
+    padding: 0 16px;
   }
 }
 
@@ -73,6 +109,9 @@
     margin-bottom: 80px;
     width: calc(59.85vw - 48px);
     height: 32vw;
+  }
+  @include bp(sm) {
+    display: none;
   }
 }
 
@@ -99,6 +138,14 @@
   width: 195px;
   @include bp(md) {
     margin-top: 45vw;
+  }
+  @include bp(sm) {
+    margin-top: 32px;
+    max-width: 100%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   p{
     text-align: right;

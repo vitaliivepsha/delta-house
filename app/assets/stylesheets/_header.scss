@@ -1,6 +1,9 @@
 .header {
   height: 87px;
   border-bottom: 1px solid rgba($dark, 0.08);
+  @include bp(sm) {
+    height: 128px;
+  }
 }
 
 .header-wrapper{
@@ -11,11 +14,18 @@
   @include bp(xl) {
     padding: 32px 24px 24px;
   }
+  @include bp(xs) {
+    padding: 32px 16px 24px;
+  }
 }
 
 .header-left{
   display: flex;
   align-items: flex-end;
+  @include bp(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .header-btn__cat{
@@ -27,6 +37,11 @@
   line-height: 17px;
   @include bp(md) {
     margin-left: 32px;
+  }
+  @include bp(sm) {
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 24px;
   }
   text-transform: uppercase;
   cursor: pointer;
@@ -41,16 +56,58 @@
   @include bp(md) {
     padding-top: 4px;
   }
+  @include bp(sm) {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+}
+
+.header-menu__btn{
+  display: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  margin-top: 28px;
+  @include bp(sm) {
+    display: flex;
+  }
+  &.active{
+    color: $red;
+  }
 }
 
 .header-menu{
   font-size: 16px;
   line-height: 19px;
   display: flex;
+  @include bp(sm) {
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+    position: absolute;
+    right: 24px;
+    top: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    background-color: $dark;
+    width: 164px;
+    padding-top: 24px;
+    padding-bottom: 3px;
+    font-size: 18px;
+    line-height: 140%;
+  }
+  @include bp(xs) {
+    right: 16px;
+  }
   li{
     margin-right: 48px;
     @include bp(md) {
       margin-right: 32px;
+    }
+    @include bp(sm) {
+      margin-right: 0;
+      margin-bottom: 24px;
     }
     &:last-child{
       margin-right: 0;
@@ -59,6 +116,10 @@
       a{
         cursor: default;
         color: $red;
+        @include bp(sm) {
+          background-color: $red;
+          color: #fff;
+        }
         &:before{
           position: absolute;
           content: '';
@@ -68,14 +129,26 @@
           height: 10px;
           left: -4px;
           bottom: -2px;
+          @include bp(sm) {
+            display: none;
+          }
         }
       }
     }
     a{
       position: relative;
       color: #000;
+      @include bp(sm) {
+        color: #fff;
+        display: flex;
+        padding: 0 24px;
+      }
       &:hover{
         color: $red;
+        @include bp(sm) {
+          background-color: $red;
+          color: #fff;
+        }
       }
     }
   }
@@ -87,6 +160,9 @@
   margin-left: 48px;
   @include bp(md) {
     margin-left: 32px;
+  }
+  @include bp(sm) {
+    display: none;
   }
   span{
     margin-left: 12px;
