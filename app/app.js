@@ -17,6 +17,7 @@ var Forms = require('_modules/forms');
 var Popup = require('_modules/popup');
 var Slider = require('_modules/slider');
 require('../node_modules/sweetalert2/dist/sweetalert2');
+//require('../node_modules/ez-plus/src/jquery.ez-plus');
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');
@@ -63,6 +64,14 @@ $(function () {
             $(this).css('left', offset);
         });
 
+        $(window).resize(function (){
+            var pos = $('.info-pos'),
+                offset = pos.offset().left - pos.closest('.container-lg').offset().left;
+            $('.slider-pos').each(function (){
+                $(this).css('left', offset);
+            });
+        });
+
         $('.slider .slide a').each(function (){
             var lw = $(this).width(),
                 ww = $(window).width();
@@ -99,6 +108,61 @@ $(function () {
 
     $(document).on('click', '.header-menu', function (e) {
         e.stopPropagation();
+    });
+
+    // catalog menu
+
+    $('.header-btn__cat').click(function () {
+        $('.menu-catalog').toggleClass('active');
+        $('body').toggleClass('cat-opened');
+        setTimeout(function () {
+            picPos();
+        }, 1000);
+    });
+
+    $('.has-children').click(function () {
+        $(this).toggleClass('opened').find('ul').slideToggle();
+        $(this).closest('.menu-catalog__list').toggleClass('opened');
+        setTimeout(function () {
+            picPos();
+        }, 100);
+        $('.menu-catalog__main .container-lg').trigger('scroll');
+    });
+
+    function picPos(){
+        $('.menu-catalog__pic').each(function (){
+            var item = $(this),
+                offset = item.offset().top,
+                wh = $(window).height(),
+                ih = item.height(),
+                bottom = wh - offset - ih;
+            console.log(bottom);
+            //item.removeClass('fixed-bot').removeClass('fixed-top');
+            if (offset <= 87) {
+                item.addClass('fixed-top').removeClass('fixed-bot');
+            }
+            else if (bottom < 0) {
+                item.addClass('fixed-bot').removeClass('fixed-top');
+            }
+            else{
+                item.removeClass('fixed-bot').removeClass('fixed-top');
+            }
+        });
+    }
+    setTimeout(function () {
+        picPos();
+    }, 3000);
+
+    $(window).on('resize', function (){
+        setTimeout(function () {
+            picPos();
+        }, 1000);
+    });
+
+    $('.menu-catalog__main .container-lg').scroll(function (){
+        setTimeout(function () {
+            picPos();
+        }, 1);
     });
 
     // lazy load
