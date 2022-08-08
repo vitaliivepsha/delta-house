@@ -186,6 +186,9 @@
   @include bp(md) {
     margin-left: 32px;
   }
+  @include bp(xs) {
+    position: static;
+  }
   &.active{
     .header-search__form{
       opacity: 1;
@@ -221,6 +224,14 @@
   @include bp(md) {
     width: 332px;
   }
+  @include bp(xs) {
+    width: 100vw;
+    left: 0;
+    top: 0;
+    transform: none;
+    background-color: $dark;
+    padding: 16px;
+  }
   input{
     height: 40px;
     width: 100%;
@@ -231,9 +242,15 @@
     font-size: 14px;
     line-height: 17px;
     background-color: transparent;
+    @include bp(xs) {
+      color: #fff;
+    }
     &::placeholder{
       color: #000;
       opacity: 0.4;
+      @include bp(xs) {
+        color: #fff;
+      }
     }
     &:focus{
       &::placeholder{
@@ -254,6 +271,16 @@
     top: 50%;
     transform: translateY(-50%);
     transition: linear .3s;
+    @include bp(xs) {
+      left: 16px;
+    }
+    svg{
+      path{
+        @include bp(xs) {
+          fill: #fff;
+        }
+      }
+    }
     &:hover{
       svg{
         path{
@@ -273,6 +300,9 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  @include bp(xs) {
+    right: 16px;
+  }
   &:hover{
     svg{
       path{
