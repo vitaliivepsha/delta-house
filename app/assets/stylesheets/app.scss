@@ -104,12 +104,18 @@ main {
     @include bp(xxl) {
       width: 57.85%;
     }
+    @include bp(xl) {
+      width: 59.85%;
+    }
     .col-left{
       width: calc(100% - 457px);
       height: 100%;
       position: relative;
       @include bp(xxl) {
         width: calc(100% - 455px);
+      }
+      @include bp(xl) {
+        width: calc(100% - 333px);
       }
     }
     .col-right{
@@ -118,6 +124,9 @@ main {
       position: relative;
       @include bp(xxl) {
         width: 455px;
+      }
+      @include bp(xl) {
+        width: 333px;
       }
       &:before{
         position: absolute;
@@ -143,6 +152,9 @@ main {
     position: relative;
     @include bp(xxl) {
       width: 42.15%;
+    }
+    @include bp(xl) {
+      width: 40.15%;
     }
     &:before{
       position: absolute;
