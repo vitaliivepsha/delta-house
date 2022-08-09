@@ -1,6 +1,7 @@
 .header {
   height: 87px;
   border-bottom: 1px solid rgba($dark, 0.08);
+  transition: linear .7s;
   @include bp(sm) {
     height: 128px;
   }

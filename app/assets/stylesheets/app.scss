@@ -68,6 +68,7 @@ svg {
 main {
   flex: 1 0 auto;
   position: relative;
+  transition: linear .7s;
   @include bp(xs) {
     overflow: hidden;
   }

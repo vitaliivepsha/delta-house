@@ -33,6 +33,10 @@ $(function () {
         $(window).trigger('resize');
     }, 100);
 
+    setTimeout(function () {
+        $('header, main, .menu-catalog').removeAttr('style');
+    }, 1000);
+
     // search
 
     $('.header-search__btn').click(function () {
@@ -126,23 +130,26 @@ $(function () {
         $(this).closest('.menu-catalog__list').toggleClass('opened');
         setTimeout(function () {
             picPos();
-        }, 100);
+        }, 1000);
         $('.menu-catalog__main .container-lg').trigger('scroll');
     });
 
     function picPos(){
         $('.menu-catalog__pic').each(function (){
             var item = $(this),
-                offset = item.offset().top,
-                wh = $(window).height(),
                 ih = item.height(),
-                bottom = wh - offset - ih;
-            console.log(bottom);
+                wh = $(window).height(),
+                top = item.offset().top,
+                bottom = wh - top - ih,
+                ph = item.parent().height(),
+                parent_top = item.parent().offset().top,
+                parent_bottom = wh - parent_top - ph;
+            console.log(top, parent_top, bottom, parent_bottom);
             //item.removeClass('fixed-bot').removeClass('fixed-top');
-            if (offset <= 87) {
+            if (parent_top <= (87 + ih / 2 - ph)) {
                 item.addClass('fixed-top').removeClass('fixed-bot');
             }
-            else if (bottom < 0) {
+            else if (parent_bottom <= (ih / 2 - ph)) {
                 item.addClass('fixed-bot').removeClass('fixed-top');
             }
             else{

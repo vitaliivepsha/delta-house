@@ -125,23 +125,65 @@
     &:first-child{
       display: flex;
       justify-content: flex-end;
+      @include bp(lg) {
+        width: 22vw;
+      }
+      @include bp(md) {
+        width: 220px;
+      }
       &:after{
         left: calc(25vw);
+        @include bp(lg) {
+          left: calc(22vw);
+        }
+        @include bp(md) {
+          left: 220px;
+        }
       }
     }
     &:nth-child(2){
+      @include bp(lg) {
+        width: 20vw;
+      }
+      @include bp(md) {
+        width: calc(100vw - 604px);
+      }
       &:after{
         left: calc(50vw - 2px);
+        @include bp(lg) {
+          left: calc(42vw - 1px);
+        }
+        @include bp(md) {
+          left: calc(100vw - 386px);
+        }
       }
     }
     &:nth-child(3){
+      @include bp(lg) {
+        width: 29vw;
+      }
+      @include bp(md) {
+        width: 360px;
+      }
       &:after{
         left: calc(75vw - 2px);
+        @include bp(lg) {
+          left: calc(71vw - 2px);
+        }
+        @include bp(md) {
+          left: calc(100vw - 26px);
+        }
       }
     }
     &:last-child{
       position: relative;
       border-color: transparent;
+      @include bp(lg) {
+        width: 29vw;
+      }
+      @include bp(md) {
+        width: 24px;
+      }
       &:after{
         display: none;
       }
@@ -191,6 +233,11 @@
       }
       >div{
         opacity: 1;
+        visibility: visible;
+        @include bp(md) {
+          opacity: 0;
+          visibility: hidden;
+        }
       }
     }
     &.has-children{
@@ -226,6 +273,7 @@
     }
     >div{
       opacity: 0;
+      visibility: hidden;
       position: absolute;
       left: calc(100% + 1px);
       top: 50%;
@@ -233,6 +281,10 @@
       width: 315px;
       height: 400px;
       z-index: 1;
+      @include bp(lg) {
+        width: 280px;
+        height: 365px;
+      }
       img{
         width: 100%;
         height: 100%;
@@ -249,6 +301,11 @@
           }
           >div{
             opacity: 1;
+            visibility: visible;
+            @include bp(md) {
+              opacity: 0;
+              visibility: hidden;
+            }
           }
         }
         >a{
@@ -262,6 +319,7 @@
         }
         >div{
           opacity: 0;
+          visibility: hidden;
           position: absolute;
           left: calc(100% + 1px);
           top: 50%;
@@ -269,6 +327,10 @@
           width: 315px;
           height: 400px;
           z-index: 1;
+          @include bp(lg) {
+            width: 280px;
+            height: 365px;
+          }
           img{
             width: 100%;
             height: 100%;
@@ -282,6 +344,9 @@
 
 .menu-catalog__pic{
   transition: none;
+  @include bp(md) {
+    display: none;
+  }
   &.fixed-top{
     position: fixed;
     top: 87px;
@@ -290,6 +355,9 @@
     transform: none;
     @include bp(xxxl) {
       left: calc(75vw - 1px);
+    }
+    @include bp(lg) {
+      left: calc(71vw - 1px);
     }
   }
   &.fixed-bot{
@@ -300,6 +368,9 @@
     transform: none;
     @include bp(xxxl) {
       left: calc(75vw - 1px);
+    }
+    @include bp(lg) {
+      left: calc(71vw - 1px);
     }
   }
 }
