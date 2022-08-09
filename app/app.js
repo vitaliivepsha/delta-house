@@ -88,10 +88,10 @@ $(function () {
         });
     }, 1000);
 
-    $('.slider').on("beforeChange", function(event, slick, currentSlide, nextSlide) {
-        $(".slick-list").addClass("do-tans");
-    }).on("afterChange", function() {
-            $(".slick-list").removeClass("do-tans");
+    $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        $('.slick-list').addClass('do-tans');
+    }).on('afterChange', function() {
+            $('.slick-list').removeClass('do-tans');
         });
 
     // mobile menu
@@ -119,19 +119,23 @@ $(function () {
     $('.header-btn__cat').click(function () {
         $('.menu-catalog').toggleClass('active');
         $('body').toggleClass('cat-opened');
-        setTimeout(function () {
-            picPos();
-        }, 1500);
-        $('.menu-catalog__main .container-lg').trigger('scroll');
+        if ($(window).width() > 991) {
+            setTimeout(function () {
+                picPos();
+            }, 1500);
+            $('.menu-catalog__main .container-lg').trigger('scroll');
+        }
     });
 
     $('.has-children').click(function () {
         $(this).toggleClass('opened').find('ul').slideToggle();
         $(this).closest('.menu-catalog__list').toggleClass('opened');
-        setTimeout(function () {
-            picPos();
-        }, 1000);
-        $('.menu-catalog__main .container-lg').trigger('scroll');
+        if ($(window).width() > 991) {
+            setTimeout(function () {
+                picPos();
+            }, 1000);
+            $('.menu-catalog__main .container-lg').trigger('scroll');
+        }
     });
 
     function picPos(){
@@ -157,21 +161,24 @@ $(function () {
             }
         });
     }
-    setTimeout(function () {
-        picPos();
-    }, 3000);
 
-    $(window).on('resize', function (){
+    if ($(window).width() > 991) {
         setTimeout(function () {
             picPos();
-        }, 1000);
-    });
+        }, 3000);
 
-    $('.menu-catalog__main .container-lg').scroll(function (){
-        setTimeout(function () {
-            picPos();
-        }, 1);
-    });
+        $(window).on('resize', function (){
+            setTimeout(function () {
+                picPos();
+            }, 1000);
+        });
+
+        $('.menu-catalog__main .container-lg').scroll(function (){
+            setTimeout(function () {
+                picPos();
+            }, 1);
+        });
+    }
 
     // lazy load
     var lazyload = function () {

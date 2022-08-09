@@ -53,6 +53,9 @@
     }
     a{
       color: #fff;
+      &:hover{
+        color: $red;
+      }
     }
   }
   .header-search__btn{
@@ -81,12 +84,41 @@
   overflow: hidden;
   @include bp(sm) {
     height: calc(100% - 128px);
+    padding-left: 24px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      overflow-y: scroll;
+      background: transparent;
+      width: 3px;
+      transition: linear .2s;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $light;
+      border-radius: 0;
+      width: 3px;
+      transition: linear .2s;
+      cursor: grab;
+    }
+  }
+  @include bp(xs) {
+    padding-left: 16px;
   }
   .container-lg{
     display: flex;
     height: 100%;
     max-height: 100%;
     overflow: auto;
+    @include bp(sm) {
+      flex-direction: column-reverse;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      height: auto;
+      max-height: unset;
+      overflow: visible;
+      padding-bottom: 32px;
+      @supports (-webkit-touch-callout: none) {
+        padding-bottom: 152px;
+      }
+    }
     &::-webkit-scrollbar {
       overflow-y: scroll;
       background: transparent;
@@ -110,6 +142,9 @@
       border-color: transparent;
       width: 25vw;
     }
+    @include bp(sm) {
+      padding-bottom: 0;
+    }
     &:after{
       opacity: 0;
       position: fixed;
@@ -131,6 +166,10 @@
       @include bp(md) {
         width: 220px;
       }
+      @include bp(sm) {
+        width: 100%;
+        justify-content: center;
+      }
       &:after{
         left: calc(25vw);
         @include bp(lg) {
@@ -138,6 +177,9 @@
         }
         @include bp(md) {
           left: 220px;
+        }
+        @include bp(sm) {
+          display: none;
         }
       }
     }
@@ -148,6 +190,9 @@
       @include bp(md) {
         width: calc(100vw - 604px);
       }
+      @include bp(sm) {
+        display: none;
+      }
       &:after{
         left: calc(50vw - 2px);
         @include bp(lg) {
@@ -155,6 +200,9 @@
         }
         @include bp(md) {
           left: calc(100vw - 386px);
+        }
+        @include bp(sm) {
+          display: none;
         }
       }
     }
@@ -165,6 +213,9 @@
       @include bp(md) {
         width: 360px;
       }
+      @include bp(sm) {
+        width: 100%;
+      }
       &:after{
         left: calc(75vw - 2px);
         @include bp(lg) {
@@ -172,6 +223,9 @@
         }
         @include bp(md) {
           left: calc(100vw - 26px);
+        }
+        @include bp(sm) {
+          display: none;
         }
       }
     }
@@ -183,6 +237,9 @@
       }
       @include bp(md) {
         width: 24px;
+      }
+      @include bp(sm) {
+        display: none;
       }
       &:after{
         display: none;
@@ -201,13 +258,50 @@
   line-height: 140%;
   color: $light;
   text-align: right;
-  a{
+  @include bp(sm) {
+    width: auto;
+    text-align: center;
+    position: relative;
+    left: -12px;
+    padding: 0 24px;
+    margin-top: 40px;
+    font-size: 12px;
+    line-height: 140%;
+  }
+  @include bp(xs) {
+    left: -8px;
+    padding: 0 16px;
+  }
+  >a{
     display: block;
     color: $light;
     text-decoration: none;
     margin-bottom: 32px;
+    @include bp(sm) {
+      margin-bottom: 12px;
+    }
     &:hover{
       color: $red;
+    }
+  }
+  .header-lang{
+    display: none;
+    color: #fff;
+    margin: 0 auto 32px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    @include bp(sm) {
+      display: flex;
+      justify-content: center;
+    }
+    span{
+      background-color: rgba(255, 255, 255, 0.08);
+      margin: 0 16px;
+    }
+    a{
+      color: #fff;
     }
   }
 }
@@ -218,6 +312,9 @@
   font-size: 16px;
   line-height: 19px;
   color: #fff;
+  @include bp(sm) {
+    margin-top: 8px;
+  }
   &.opened{
     >li{
       >a{
@@ -257,6 +354,9 @@
           position: absolute;
           right: 16px;
           top: 9px;
+          @include bp(sm) {
+            top: 13px;
+          }
         }
       }
     }
@@ -267,6 +367,9 @@
       padding: 12px 0;
       color: #fff;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      @include bp(sm) {
+        padding: 16px 0;
+      }
       &:hover{
         color: #fff;
       }
@@ -313,6 +416,9 @@
           padding: 12px 0;
           color: #fff;
           background-color: $accent;
+          @include bp(sm) {
+            padding: 16px 0;
+          }
           &:hover{
             color: #fff;
           }
