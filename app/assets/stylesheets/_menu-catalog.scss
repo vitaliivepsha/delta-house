@@ -70,10 +70,33 @@
     &:before{
       background-color: $dark;
     }
+    &:after{
+      background-color: $dark;
+    }
     input{
       color: #fff;
       &::placeholder{
         color: #fff;
+      }
+    }
+    .search-results{
+      background-color: $light;
+      color: #000;
+      .mark, mark{
+        color: #000;
+      }
+      ul{
+        li{
+          a{
+            color: #000;
+            &:hover{
+              color: #fff;
+              .mark, mark{
+                color: #fff;
+              }
+            }
+          }
+        }
       }
     }
   }

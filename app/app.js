@@ -18,7 +18,7 @@ var Forms = require('_modules/forms');
 var Popup = require('_modules/popup');
 var Slider = require('_modules/slider');
 require('../node_modules/sweetalert2/dist/sweetalert2');
-//require('../node_modules/ez-plus/src/jquery.ez-plus');
+require('../node_modules/mark.js/dist/jquery.mark.min');
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');
@@ -48,6 +48,57 @@ $(function () {
         $(this).closest('.header-search').removeClass('active');
     });
 
+    $(document).click(function() {
+        $('.header-search').removeClass('results').removeClass('show');
+    });
+
+    $(document).on('click', '.header-search', function(e) {
+        e.stopPropagation();
+    });
+
+    var $input = $('.header-search__form > input'),
+        $content = $('.header-search__form .search-results'),
+        $results,
+        currentIndex = 0;
+
+    $input.on('input', function() {
+        var searchVal = this.value;
+        if (searchVal.length > 0){
+            $(this).closest('.header-search').addClass('results');
+        }
+        else{
+            $(this).closest('.header-search').removeClass('results');
+        }
+        $('.header-search__form .search-results li a').each(function() {
+            $(this).bind('DOMSubtreeModified', function() {
+                if ($(this).find('mark').length) {
+                    $(this).closest('.header-search').addClass('show');
+                    $(this).closest('li').addClass('show').closest('ul').addClass('highlighting-results');
+                    $('.search-results__show').show();
+                    $('.search-results__empty').hide();
+                }
+                else {
+                    $(this).closest('.header-search').removeClass('show');
+                    $(this).closest('li').removeClass('show').closest('ul').removeClass('highlighting-results');
+                    $('.search-results__show').hide();
+                    $('.search-results__empty').show();
+                }
+            });
+        });
+
+        $content.unmark({
+            done: function() {
+                $content.mark(searchVal, {
+                    separateWordSearch: true,
+                    done: function() {
+                        $results = $content.find('mark');
+                        currentIndex = 0;
+                    }
+                });
+            }
+        });
+    });
+
     // first screen img move
 
     $('.main-pic').mousemove(function(e){
@@ -61,33 +112,35 @@ $(function () {
 
     // slider elements position
 
-    setTimeout(function () {
-        var pos = $('.info-pos'),
-        offset = pos.offset().left - pos.closest('.container-lg').offset().left;
-
-        $('.slider-pos').each(function (){
-            $(this).css('left', offset);
-        });
-
-        $(window).resize(function (){
+    if($('.slider-pos').length){
+        setTimeout(function () {
             var pos = $('.info-pos'),
                 offset = pos.offset().left - pos.closest('.container-lg').offset().left;
+
             $('.slider-pos').each(function (){
                 $(this).css('left', offset);
             });
-        });
 
-        $('.slider .slide a').each(function (){
-            var lw = $(this).width(),
-                ww = $(window).width();
-            if(lw >= ww - 48 && ww < 399){
-                $(this).find('span').css('flex-basis', 0);
-            }
-            if(lw >= ww - 32 && ww < 359){
-                $(this).find('span').css('flex-basis', 0);
-            }
-        });
-    }, 1000);
+            $(window).resize(function (){
+                var pos = $('.info-pos'),
+                    offset = pos.offset().left - pos.closest('.container-lg').offset().left;
+                $('.slider-pos').each(function (){
+                    $(this).css('left', offset);
+                });
+            });
+
+            $('.slider .slide a').each(function (){
+                var lw = $(this).width(),
+                    ww = $(window).width();
+                if(lw >= ww - 48 && ww < 399){
+                    $(this).find('span').css('flex-basis', 0);
+                }
+                if(lw >= ww - 32 && ww < 359){
+                    $(this).find('span').css('flex-basis', 0);
+                }
+            });
+        }, 1000);
+    }
 
     $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
         $('.slick-list').addClass('do-tans');

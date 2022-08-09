@@ -108,6 +108,9 @@ body {
       &:before{
         background-color: $dark;
       }
+      &:after{
+        background-color: $dark;
+      }
       input{
         color: #fff;
         &::placeholder{
@@ -124,6 +127,51 @@ body {
           svg{
             path{
               fill: $red;
+            }
+          }
+        }
+      }
+      .search-results{
+        background-color: $light;
+        color: #000;
+        @include bp(md) {
+          top: 100%;
+          box-shadow: none;
+          border-radius: 0;
+          background-color: $dark;
+          color: #fff;
+          width: calc(100% + 20px);
+          left: -10px;
+        }
+        @include bp(xs) {
+          width: 100%;
+          left: 0;
+        }
+        .mark, mark{
+          color: #000;
+          @include bp(md) {
+            color: #fff;
+          }
+        }
+        ul{
+          li{
+            a{
+              color: #000;
+              @include bp(md) {
+                color: #fff;
+              }
+              &:hover{
+                color: #fff;
+                @include bp(md) {
+                  color: #000;
+                }
+                .mark, mark{
+                  color: #fff;
+                  @include bp(md) {
+                    color: #000;
+                  }
+                }
+              }
             }
           }
         }
