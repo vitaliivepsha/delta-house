@@ -21,14 +21,113 @@ body {
   @include bp(md) {
     display: block;
   }
-  &.menu-opened{
-    .header-menu{
+
+  &.menu-opened {
+    .header-menu {
       display: flex;
     }
   }
-  &.cat-opened{
+
+  &.cat-opened {
     height: 100vh;
     overflow: hidden;
+  }
+
+  &.dark-mode {
+    background-color: $dark;
+
+    & .header {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    & .header-menu {
+      & li a {
+        color: #fff;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    & .header-lang {
+      & div {
+        color: #fff;
+      }
+
+      & span {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      & a {
+        color: #fff;
+        opacity: .6;
+
+        &:hover {
+          color: #D9251C;
+          opacity: 1;
+        }
+      }
+    }
+
+    & .header-search__btn {
+      & svg path {
+        fill: #fff;
+      }
+
+      &:hover {
+        & svg path {
+          fill: $red;
+        }
+      }
+    }
+
+    & .header-search__form {
+      &:before {
+        content: "";
+        background-color: $dark;
+      }
+
+      & input {
+        background-color: $dark;
+        color: #fff;
+
+        &::-webkit-input-placeholder {
+          color: #fff;
+          opacity: .2;
+        }
+
+        &::-moz-placeholder {
+          color: #fff;
+          opacity: .2;
+        }
+
+        &:-ms-input-placeholder {
+          color: #fff;
+          opacity: .2;
+        }
+
+        &:-moz-placeholder {
+          color: #fff;
+          opacity: .2;
+        }
+      }
+
+      & button {
+        & svg path {
+          fill: #fff;
+        }
+
+        &:hover {
+          & svg path {
+            fill: $red;
+          }
+        }
+      }
+    }
+
+
+
   }
 }
 
@@ -43,6 +142,7 @@ ul {
 a,
 .slick-slide {
   outline: none;
+
   &:focus {
     outline: none;
   }
@@ -50,10 +150,12 @@ a,
 
 a {
   transition: 0.2s linear;
-  &:not([class]){
+
+  &:not([class]) {
     color: #fff;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
       color: $red;
     }
   }
@@ -78,7 +180,7 @@ main {
   position: relative;
 }
 
-.container-lg{
+.container-lg {
   width: 1920px;
   max-width: 100%;
   margin: 0 auto;
@@ -93,7 +195,7 @@ main {
   }
 }
 
-.grid{
+.grid {
   display: flex;
   position: absolute;
   z-index: -1;
@@ -101,7 +203,8 @@ main {
   width: 100%;
   left: 0;
   top: 0;
-  .col-lg{
+
+  .col-lg {
     display: flex;
     width: 56%;
     height: 100%;
@@ -112,7 +215,8 @@ main {
     @include bp(xl) {
       width: 59.85%;
     }
-    .col-left{
+
+    .col-left {
       width: calc(100% - 457px);
       height: 100%;
       position: relative;
@@ -123,7 +227,8 @@ main {
         width: calc(100% - 333px);
       }
     }
-    .col-right{
+
+    .col-right {
       width: 457px;
       height: 100%;
       position: relative;
@@ -133,7 +238,8 @@ main {
       @include bp(xl) {
         width: 333px;
       }
-      &:before{
+
+      &:before {
         position: absolute;
         content: '';
         left: 0;
@@ -145,7 +251,8 @@ main {
           display: none;
         }
       }
-      >svg{
+
+      > svg {
         position: absolute;
         left: -7px;
         top: -8px;
@@ -156,7 +263,8 @@ main {
       }
     }
   }
-  .col-sm{
+
+  .col-sm {
     display: flex;
     width: 44%;
     height: 100%;
@@ -167,7 +275,8 @@ main {
     @include bp(xl) {
       width: 40.15%;
     }
-    &:before{
+
+    &:before {
       position: absolute;
       content: '';
       left: 0;
@@ -179,7 +288,8 @@ main {
         display: none;
       }
     }
-    >svg{
+
+    > svg {
       position: absolute;
       left: -7px;
       top: -8px;
@@ -213,6 +323,7 @@ main {
 // Pages
 @import "contacts";
 @import "about";
+@import "catalog";
 
 // Popup
 @import "popup";
