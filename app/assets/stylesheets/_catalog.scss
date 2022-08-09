@@ -1,6 +1,9 @@
 .catalog-section{
   background-color: $dark;
   margin-top: -87px;
+  @include bp(sm){
+    margin-top: -128px;
+  }
   .container-lg{
     .grid{
       position: relative;
@@ -46,7 +49,14 @@
   position: relative;
   max-width: 100%;
   @include bp(md){
-    padding: 64px 24px 128px calc(100% - 333px);
+    margin-top: 0;
+    padding: 64px 24px 128px calc(59.85vw - 333px);
+  }
+  @include bp(sm){
+    padding: 64px 24px 128px 24px;
+  }
+  @include bp(xs){
+    padding: 64px 16px 128px 16px;
   }
   &:before{
     position: absolute;
