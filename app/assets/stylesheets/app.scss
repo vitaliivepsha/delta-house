@@ -129,6 +129,11 @@ body {
         }
       }
     }
+    main{
+      @include bp(xs){
+        overflow: visible;
+      }
+    }
   }
 }
 
