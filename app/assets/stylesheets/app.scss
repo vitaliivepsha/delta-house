@@ -33,6 +33,7 @@ body {
     overflow: hidden;
   }
 
+
   &.dark-mode {
     background-color: $dark;
 
@@ -125,9 +126,185 @@ body {
         }
       }
     }
+  }
 
 
+  &.catalog {
+    .header {
+      position: relative;
+      z-index: 2;
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
 
+    .header-menu {
+      li {
+        &.current-menu-item {
+          a {
+            @include bp(md) {
+              color: $red;
+            }
+
+            &:hover {
+              color: #fff;
+              @include bp(md) {
+                color: #fff;
+              }
+            }
+
+            &:before {
+              background-color: $red;
+              @include bp(md) {
+                background-color: #fff;
+              }
+            }
+          }
+        }
+
+        a {
+          color: #fff;
+          @include bp(md) {
+            color: #000;
+          }
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+
+    .header-lang {
+      color: #fff;
+      @include bp(md) {
+        color: #000;
+      }
+
+      span {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: #fff;
+        @include bp(md) {
+          color: #000;
+        }
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    .header-search__btn {
+      svg {
+        path {
+          fill: #fff;
+          @include bp(md) {
+            fill: #000;
+          }
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: $red;
+          }
+        }
+      }
+    }
+
+    .header-search__form {
+      background-color: $dark;
+
+      &:before {
+        background-color: $dark;
+      }
+
+      &:after {
+        background-color: $dark;
+      }
+
+      input {
+        color: #fff;
+
+        &::placeholder {
+          color: #fff;
+        }
+      }
+
+      button {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+
+        &:hover {
+          svg {
+            path {
+              fill: $red;
+            }
+          }
+        }
+      }
+
+      .search-results {
+        background-color: $light;
+        color: #000;
+        @include bp(md) {
+          top: 100%;
+          box-shadow: none;
+          border-radius: 0;
+          background-color: $dark;
+          color: #fff;
+          width: calc(100% + 20px);
+          left: -10px;
+        }
+        @include bp(xs) {
+          width: 100%;
+          left: 0;
+        }
+
+        .mark, mark {
+          color: #000;
+          @include bp(md) {
+            color: #fff;
+          }
+        }
+
+        ul {
+          li {
+            a {
+              color: #000;
+              @include bp(md) {
+                color: #fff;
+              }
+
+              &:hover {
+                color: #fff;
+                @include bp(md) {
+                  color: #000;
+                }
+
+                .mark, mark {
+                  color: #fff;
+                  @include bp(md) {
+                    color: #000;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    main {
+      @include bp(xs) {
+        overflow: visible;
+      }
+    }
   }
 }
 
@@ -170,6 +347,7 @@ svg {
 main {
   flex: 1 0 auto;
   position: relative;
+  transition: linear .7s;
   @include bp(xs) {
     overflow: hidden;
   }

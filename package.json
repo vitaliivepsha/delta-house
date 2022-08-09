@@ -110,6 +110,7 @@
     "perfect-scrollbar": "^1.5.0",
     "pg-calendar": "^1.4.30",
     "rangeslider-js": "^3.2.1",
-    "sugar": "^2.0.6"
+    "sugar": "^2.0.6",
+    "typed.js": "^2.0.12"
   }
 }

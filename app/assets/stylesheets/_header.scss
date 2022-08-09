@@ -1,6 +1,7 @@
 .header {
   height: 87px;
   border-bottom: 1px solid rgba($dark, 0.08);
+  transition: linear .7s;
   @include bp(sm) {
     height: 128px;
   }
@@ -176,12 +177,14 @@
     opacity: .6;
     &:hover{
       opacity: 1;
+      color: $red;
     }
   }
 }
 
 .header-search{
   position: relative;
+  z-index: 2;
   margin-left: 48px;
   @include bp(md) {
     margin-left: 32px;
@@ -193,6 +196,13 @@
     .header-search__form{
       opacity: 1;
       visibility: visible;
+    }
+  }
+  &.results{
+    .header-search__form{
+      .search-results{
+        display: block;
+      }
     }
   }
 }
@@ -226,6 +236,19 @@
     content: '';
     z-index: 1;
     right: 100%;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: $light;
+    @include bp(xs) {
+      display: none;
+    }
+  }
+  &:after{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    left: 100%;
     top: 0;
     width: 10px;
     height: 100%;
@@ -298,6 +321,77 @@
       svg{
         path{
           fill: $red;
+        }
+      }
+    }
+  }
+  .search-results{
+    position: absolute;
+    display: none;
+    width: 100%;
+    left: 0;
+    top: calc(100% + 16px);
+    background-color: $dark;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 140%;
+    max-height: 370px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      overflow-y: scroll;
+      background: transparent;
+      width: 3px;
+      transition: linear .2s;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $red;
+      border-radius: 0;
+      width: 3px;
+      transition: linear .2s;
+      cursor: grab;
+    }
+    @include bp(xs) {
+      top: 100%;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .mark, mark{
+      background-color: transparent;
+      color: #fff;
+      padding: 0;
+      transition: linear .2s;
+    }
+    .search-results__show{
+      display: none;
+      padding: 24px;
+      opacity: .6;
+    }
+    .search-results__empty{
+      padding: 24px;
+      opacity: .6;
+    }
+    ul{
+      display: none;
+      &.highlighting-results{
+        display: block;
+      }
+      li{
+        display: none;
+        margin-bottom: 24px;
+        &.show{
+          display: block;
+        }
+        a{
+          color: #fff;
+          padding: 0 24px;
+          width: 100%;
+          display: block;
+          &:hover{
+            color: #fff;
+            background-color: $red;
+          }
         }
       }
     }

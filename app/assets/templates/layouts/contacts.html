@@ -15,10 +15,9 @@
 </head>
 
 <body>
+${require('../parts/header.html')}
 
-
-
-<main class="main">
+<main class="main"  style="opacity: 0;">
     <div class="contacts">
         <div class="contacts__inner">
             <span class="contacts__title">Let’s add comfort, style and functionality for your home!</span>
@@ -30,7 +29,7 @@
                 <svg width="30" height="79" viewBox="0 0 30 79" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 2L30 0L10 77L0 79L20 2Z" fill="black"/>
                 </svg>
-                <span>Fasades.</span>
+                <span id="typing_text">Fasades.</span>
                 <!--                <a href="javascript:void(0)">Fasades.</a>-->
             </div>
             <div class="contacts__address">
@@ -58,7 +57,7 @@
     </div>
 
 </main>
-
+${require('../parts/footer.html')}
 
 </body>
 

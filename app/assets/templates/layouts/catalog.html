@@ -2,48 +2,91 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <title>Delta House</title>
-    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon.png" type="image/png">
-    <meta name="theme-color" content="#EFEFED">
-    <meta name="msapplication-navbutton-color" content="#EFEFED">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#EFEFED">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Delta House</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon.png" type="image/png">
+  <meta name="theme-color" content="#EFEFED">
+  <meta name="msapplication-navbutton-color" content="#EFEFED">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#EFEFED">
 </head>
 
-<body class="dark-mode">
+<body class="catalog">
 
-${require('../parts/header.html')}
+  ${require('../parts/header.html')}
 
-<main class="main">
-    <div class="catalog">
+  <main class="main" style="opacity: 0;">
+    <div class="section catalog-section">
         <div class="container-lg">
             <div class="grid">
                 <div class="col-lg">
-                    <div class="catalog__pic">
-                        <picture>
-                            <source srcset="../../images/pixel.webp" data-original="../../images/catalog-product.webp"
-                                    class="lazy-web" type="image/webp">
-                            <source srcset="../../images/pixel.jpg" data-original="../../images/catalog-product.jpg"
-                                    class="lazy-web" type="image/jpg">
-                            <img src="../../images/pixel.jpg" data-original="../../images/catalog-product.jpg"
-                                 class="lazy" alt="">
-                        </picture>
-                    </div>
-                    sfgsfg
+                    <img src="../../images/catalog-pic.jpg" class="lazy" alt="">
+                    <img src="../../images/catalog-pic__mob.jpg" class="lazy" alt="">
                 </div>
                 <div class="col-sm">
-                    dfgdfg
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="7.5" y1="2.18557e-08" x2="7.5" y2="16" stroke="#fff"/>
+                        <line y1="7.5" x2="16" y2="7.5" stroke="#fff"/>
+                    </svg>
+                    <div class="catalog-text">
+                        <h1 class="catalog-title">Lifting-sliding structures</h1>
+                        <div class="catalog-text__main">
+                            <p>Sliding aluminium doors are an ideal solution for glazing of terrace exits, balconies, winter gardens, and swimming pools. When closed, the sliding structures look like a large glass wall, which without any effort can be pushed aside or folded altogether, providing a wide and spacious exit.</p>
+                            <h2>General information:</h2>
+                            <ul>
+                                <li>visually appealing design;</li>
+                                <li>space saving;</li>
+                                <li>structures of various opening types,</li>
+                                <li>easy-to-use and space saving,</li>
+                                <li>creating maximum comfort;</li>
+                                <li>broad color palette;</li>
+                                <li>easy, almost noiseless move;</li>
+                                <li>high level of thermal insulation;</li>
+                                <li>burglary protection.</li>
+                            </ul>
+                            <h2>We offers you the following options of sliding systems:</h2>
+                            <ul>
+                                <li>parallel retractable sliding structures (PASK, Schüco, and Reynaers);</li>
+                                <li>lift and slide systems (Schüco and Reynaers);</li>
+                                <li>panoramic sliding systems (Schüco and Reynaers);</li>
+                                <li>folding structures (Schüco and Reynaers).</li>
+                            </ul>
+                        </div>
+                        <div class="catalog-links">
+                            <div>
+                                <a href="javascript:void(0)" target="_blank" rel="nofollow">
+                                    Download catalog “Schueco”
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.20188 0H16.0019V1.6H1.92188L3.20188 0Z" fill="#EFEFED"/>
+                                        <path d="M16 0L16 12.8L14.4 14.08L14.4 1.90798e-08L16 0Z" fill="#EFEFED"/>
+                                        <path d="M0.480469 15.5206L15.3605 0.640625" stroke="#EFEFED" stroke-width="1.28"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" target="_blank" rel="nofollow">
+                                    Download catalog “Reynaers”
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.20188 0H16.0019V1.6H1.92188L3.20188 0Z" fill="#EFEFED"/>
+                                        <path d="M16 0L16 12.8L14.4 14.08L14.4 1.90798e-08L16 0Z" fill="#EFEFED"/>
+                                        <path d="M0.480469 15.5206L15.3605 0.640625" stroke="#EFEFED" stroke-width="1.28"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-</main>
-${require('../parts/footer.html')}
+  </main>
+  ${require('../parts/footer.html')}
+
 
 </body>
 

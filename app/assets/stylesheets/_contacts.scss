@@ -1,4 +1,4 @@
-юcontacts  {
+.contacts {
 }
 
 .contacts__inner {
@@ -126,7 +126,9 @@
   gap: 16px;
   justify-content: end;
   margin-bottom: 80px;
+  min-height: 84px;
   @include bp(md) {
+    min-height: 64px;
     margin-bottom: 63px;
   }
   @include bp(xs) {
