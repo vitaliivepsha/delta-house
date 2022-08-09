@@ -30,6 +30,85 @@ body {
     height: 100vh;
     overflow: hidden;
   }
+  &.catalog{
+    .header{
+      position: relative;
+      z-index: 2;
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+    .header-menu{
+      li{
+        &.current-menu-item {
+          a{
+            &:hover{
+              color: #fff;
+            }
+            &:before{
+              background-color: $red;
+            }
+          }
+        }
+        a{
+          color: #fff;
+          &:hover{
+            color: $red;
+          }
+        }
+      }
+    }
+    .header-lang{
+      color: #fff;
+      span{
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      a{
+        color: #fff;
+        &:hover{
+          color: $red;
+        }
+      }
+    }
+    .header-search__btn{
+      svg{
+        path{
+          fill: #fff;
+        }
+      }
+      &:hover{
+        svg{
+          path{
+            fill: $red;
+          }
+        }
+      }
+    }
+    .header-search__form{
+      background-color: $dark;
+      &:before{
+        background-color: $dark;
+      }
+      input{
+        color: #fff;
+        &::placeholder{
+          color: #fff;
+        }
+      }
+      button{
+        svg{
+          path{
+            fill: #fff;
+          }
+        }
+        &:hover{
+          svg{
+            path{
+              fill: $red;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 ol,
@@ -214,6 +293,7 @@ main {
 // Pages
 @import "contacts";
 @import "about";
+@import "catalog";
 
 // Popup
 @import "popup";

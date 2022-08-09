@@ -1,0 +1,41 @@
+.catalog-section{
+  background-color: $dark;
+  margin-top: -87px;
+  .container-lg{
+    .grid{
+      position: relative;
+      z-index: 1;
+      align-items: flex-start;
+      .col-lg{
+        position: sticky;
+        top: 0;
+        img{
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+      .col-sm{
+        > svg{
+          top: 79px;
+        }
+      }
+    }
+  }
+}
+
+.catalog-text{
+  margin-top: 87px;
+  padding: 32px 48px 48px 32px;
+  color: $light;
+}
+
+.catalog-title{
+  display: block;
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+  text-transform: uppercase;
+  color: #fff;
+}
