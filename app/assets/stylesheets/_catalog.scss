@@ -6,17 +6,33 @@
       position: relative;
       z-index: 1;
       align-items: flex-start;
+      @include bp(md) {
+        flex-direction: column;
+      }
       .col-lg{
         position: sticky;
         top: 0;
+        @include bp(md) {
+          position: static;
+          width: 100%;
+        }
         img{
           width: 100%;
           object-fit: contain;
         }
       }
       .col-sm{
+        @include bp(md) {
+          width: 100%;
+        }
         > svg{
           top: 79px;
+          @include bp(md) {
+            display: none;
+          }
+        }
+        &:before{
+          display: none;
         }
       }
     }
@@ -25,8 +41,25 @@
 
 .catalog-text{
   margin-top: 87px;
-  padding: 32px 48px 48px 32px;
+  padding: 32px 48px 156px 32px;
   color: $light;
+  position: relative;
+  max-width: 100%;
+  @include bp(md){
+    padding: 64px 24px 128px calc(100% - 333px);
+  }
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    @include bp(md){
+      display: none;
+    }
+  }
 }
 
 .catalog-title{
@@ -38,4 +71,69 @@
   line-height: 48px;
   text-transform: uppercase;
   color: #fff;
+}
+
+.catalog-text__main{
+  p{
+    margin-bottom: 8px;
+  }
+  ul{
+    padding-left: 18px;
+    list-style-type: disc;
+    margin-bottom: 8px;
+  }
+  ol{
+    padding-left: 18px;
+    list-style-type: decimal;
+    margin-bottom: 8px;
+  }
+  h2, h3{
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  a{
+    color: #fff;
+    &:hover, &:focus{
+      color: $red;
+      text-decoration: none;
+    }
+  }
+}
+
+.catalog-links{
+  margin-top: 48px;
+  div{
+    +div{
+      margin-top: 16px;
+    }
+    a{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      &:hover{
+        color: $red;
+        svg{
+          path{
+            fill: $red;
+            &:last-child{
+              fill: none;
+              stroke: $red;
+            }
+          }
+        }
+      }
+      svg{
+        min-width: 17px;
+        margin-left: 12px;
+      }
+    }
+  }
 }

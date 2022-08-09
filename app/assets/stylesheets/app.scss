@@ -40,16 +40,28 @@ body {
       li{
         &.current-menu-item {
           a{
+            @include bp(md) {
+              color: $red;
+            }
             &:hover{
               color: #fff;
+              @include bp(md) {
+                color: #fff;
+              }
             }
             &:before{
               background-color: $red;
+              @include bp(md) {
+                background-color: #fff;
+              }
             }
           }
         }
         a{
           color: #fff;
+          @include bp(md) {
+            color: #000;
+          }
           &:hover{
             color: $red;
           }
@@ -58,11 +70,17 @@ body {
     }
     .header-lang{
       color: #fff;
+      @include bp(md) {
+        color: #000;
+      }
       span{
         background-color: rgba(0, 0, 0, 0.1);
       }
       a{
         color: #fff;
+        @include bp(md) {
+          color: #000;
+        }
         &:hover{
           color: $red;
         }
@@ -72,6 +90,9 @@ body {
       svg{
         path{
           fill: #fff;
+          @include bp(md) {
+            fill: #000;
+          }
         }
       }
       &:hover{
