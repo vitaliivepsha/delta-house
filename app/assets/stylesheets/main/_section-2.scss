@@ -191,7 +191,7 @@
     left: 0;
     top: 0;
     opacity: 0;
-    transition: ease-in-out .6s;
+    transition: opacity ease-in-out .3s, height ease-in-out .6s;
     z-index: 1;
   }
   img{

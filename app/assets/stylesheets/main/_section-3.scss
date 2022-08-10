@@ -98,6 +98,10 @@
       }
     }
     &:not(.slick-current){
+      pointer-events: none;
+      @include bp(sm) {
+        pointer-events: auto;
+      }
       .slide{
         >a{
           left: auto !important;

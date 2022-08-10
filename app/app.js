@@ -107,8 +107,8 @@ $(function () {
         var $this = $(this),
             winWidth = window.innerWidth,
             winHeight = window.innerHeight,
-            relativeX = e.pageX / (winWidth / 20) + 'px',
-            relativeY = e.pageY / (winHeight / 20) + 'px';
+            relativeX = (e.pageX / (winWidth / 20)) * 2 + 'px',
+            relativeY = (e.pageY / (winHeight / 20)) * 2 + 'px';
         $this.css('transform', 'translate(calc(-50% + ' + relativeX + '), calc(-50% + ' + relativeY + '))');
     });
 
