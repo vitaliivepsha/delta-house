@@ -1,10 +1,14 @@
 .contacts {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .contacts__inner {
   max-width: 967px;
   margin: 0 auto;
   padding: 80px 15px;
+  flex: 1 0 auto;
   @include bp(lg) {
     max-width: 906px;
   }

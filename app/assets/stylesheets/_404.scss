@@ -1,0 +1,86 @@
+.nf-section{
+  background: url("../images/404.jpg") no-repeat top center;
+  background-size: cover;
+  padding-top: 256px;
+  padding-bottom: 156px;
+  margin-top: -87px;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  max-width: 100vw;
+  @include bp(sm) {
+    margin-top: -128px;
+    padding-top: 200px;
+  }
+}
+
+.nf-main{
+  width: 534px;
+  color: #fff;
+  margin-left: 48px;
+  @include bp(sm) {
+    margin-left: 24px;
+  }
+  @include bp(xs) {
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+  }
+  >div{
+    font-weight: 800;
+    font-size: 200px;
+    line-height: 240px;
+    text-transform: uppercase;
+    @include bp(xs) {
+      font-size: 40vw;
+      line-height: 1;
+    }
+  }
+  >span{
+    display: block;
+    text-align: right;
+    font-weight: 800;
+    font-size: 96px;
+    line-height: 115px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-top: -58px;
+    @include bp(xs) {
+      font-size: 19vw;
+      line-height: 1;
+      margin-top: -1vw;
+    }
+  }
+  >p{
+    font-size: 18px;
+    line-height: 140%;
+    margin-bottom: 24px;
+  }
+  >a{
+    display: flex;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+      color: $red;
+      svg{
+        path{
+          fill: $red;
+          &:last-child{
+            fill: none;
+            stroke: $red;
+          }
+        }
+      }
+    }
+    svg{
+      width: 14px;
+      height: 14px;
+      margin-left: 12px;
+    }
+  }
+}

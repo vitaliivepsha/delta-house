@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/contacts.html');
     require('./assets/templates/layouts/about.html');
     require('./assets/templates/layouts/catalog.html');
+    require('./assets/templates/layouts/404.html');
 }
 
 // Depends
@@ -36,7 +37,7 @@ $(function () {
     }, 100);
 
     setTimeout(function () {
-        $('header, main, .menu-catalog').removeAttr('style');
+        $('header, footer, main, .menu-catalog').removeAttr('style');
     }, 1000);
 
     // search
@@ -64,7 +65,7 @@ $(function () {
 
     $input.on('input', function() {
         var searchVal = this.value;
-        if (searchVal.length > 0){
+        if (searchVal.length > 1){
             $(this).closest('.header-search').addClass('results');
         }
         else{
@@ -237,40 +238,41 @@ $(function () {
 
     // typing text
 
-    var typed = new Typed('#typing_text', {
+    if($('#typing_text').length) {
+        var typed = new Typed('#typing_text', {
 
-        strings: [
-            'Fasades.',
-            'Design.',
-            'Curtain wall.',
-            'Unitized facades.',
-            'Rainscreen cladding.',
-            'Sliding system.',
-            'Wintergardens and domes.',
-            'Inspect screening system.',
-            'Sun protection systems.',
-            'Parapets, canopies.',
-            'Maintenance.',
-            'Aluminum.',
-            'Aluminum.',
-            'Aluminum.'
+            strings: [
+                'Fasades.',
+                'Design.',
+                'Curtain wall.',
+                /*'Unitized facades.',
+                'Rainscreen cladding.',
+                'Sliding system.',
+                'Wintergardens and domes.',
+                'Inspect screening system.',
+                'Sun protection systems.',
+                'Parapets, canopies.',*/
+                'Maintenance.',
+                'Aluminum.',
+                'Aluminum.',
+                'Aluminum.'
 
-        ],
-        stringsElement: null,
-        typeSpeed: 150,
-        startDelay: 2500,
-        backSpeed: 40,
-        smartBackspace: true,
-        shuffle: false,
-        backDelay: 3000,
-        fadeOut: false,
-        fadeOutClass: 'typed-fade-out',
-        fadeOutDelay: 700,
-        loop: true,
-        loopCount: Infinity,
-        showCursor: false,
-
-    });
+            ],
+            stringsElement: null,
+            typeSpeed: 150,
+            startDelay: 2500,
+            backSpeed: 40,
+            smartBackspace: true,
+            shuffle: false,
+            backDelay: 3000,
+            fadeOut: false,
+            fadeOutClass: 'typed-fade-out',
+            fadeOutDelay: 700,
+            loop: true,
+            loopCount: Infinity,
+            showCursor: false
+        });
+    }
 
     // lazy load
     var lazyload = function () {

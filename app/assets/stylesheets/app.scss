@@ -21,26 +21,20 @@ body {
   @include bp(md) {
     display: block;
   }
-
   &.menu-opened {
     .header-menu {
       display: flex;
     }
   }
-
   &.cat-opened {
     height: 100vh;
     overflow: hidden;
   }
-
-
   &.dark-mode {
     background-color: $dark;
-
     & .header {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
-
     & .header-menu {
       & li a {
         color: #fff;
@@ -50,16 +44,13 @@ body {
         }
       }
     }
-
     & .header-lang {
       & div {
         color: #fff;
       }
-
       & span {
         background-color: rgba(255, 255, 255, 0.1);
       }
-
       & a {
         color: #fff;
         opacity: .6;
@@ -70,19 +61,16 @@ body {
         }
       }
     }
-
     & .header-search__btn {
       & svg path {
         fill: #fff;
       }
-
       &:hover {
         & svg path {
           fill: $red;
         }
       }
     }
-
     & .header-search__form {
       &:before {
         content: "";
@@ -127,15 +115,12 @@ body {
       }
     }
   }
-
-
   &.catalog {
     .header {
       position: relative;
       z-index: 2;
       border-bottom-color: rgba(0, 0, 0, 0.1);
     }
-
     .header-menu {
       li {
         &.current-menu-item {
@@ -301,8 +286,33 @@ body {
     }
 
     main {
+      display: flex;
       @include bp(xs) {
         overflow: visible;
+      }
+    }
+  }
+
+  &.nf {
+    .header {
+      position: relative;
+      z-index: 2;
+    }
+    main{
+      display: flex;
+      @include bp(md) {
+        display: block;
+      }
+      @include bp(xs) {
+        overflow: visible;
+      }
+    }
+  }
+  &.contact-us {
+    main{
+      display: flex;
+      @include bp(md) {
+        display: block;
       }
     }
   }
@@ -502,6 +512,7 @@ main {
 @import "contacts";
 @import "about";
 @import "catalog";
+@import "404";
 
 // Popup
 @import "popup";
