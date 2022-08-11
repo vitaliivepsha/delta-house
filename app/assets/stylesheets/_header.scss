@@ -36,6 +36,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
+  transition: linear .2s;
   @include bp(md) {
     margin-left: 32px;
   }
@@ -48,6 +49,25 @@
   cursor: pointer;
   svg{
     margin-right: 8px;
+    *{
+      transition: linear .2s;
+    }
+  }
+  &.active{
+    rect{
+      transform: rotate(32deg) translate(5px, -3.5px);
+      +rect{
+        transform: rotate(-32deg) translate(-8px, 2px);
+      }
+    }
+  }
+  &:hover{
+    color: $red;
+    svg{
+      *{
+        fill: $red;
+      }
+    }
   }
 }
 

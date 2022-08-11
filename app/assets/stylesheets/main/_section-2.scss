@@ -2,29 +2,20 @@
   background-color: $dark;
   z-index: 1;
   .container-lg{
-    height: 100%;
-    padding-bottom: 74px;
-    @include bp(xl) {
-      padding-bottom: 0;
-      height: inherit;
-    }
+    height: inherit;
     @include bp(sm) {
       height: auto;
     }
     .grid{
+      height: inherit;
       position: relative;
       z-index: 1;
-      @include bp(xl) {
-        height: inherit;
-      }
       @include bp(sm) {
         flex-direction: column-reverse;
         height: auto;
       }
       .col-lg{
-        @include bp(xl) {
-          height: inherit;
-        }
+        height: inherit;
         @include bp(sm) {
           width: 100%;
           height: auto;
@@ -35,9 +26,13 @@
           }
         }
         .col-right{
+          padding-bottom: 160px;
           @include bp(xl) {
             width: 100%;
             padding-left: 24px;
+          }
+          @include bp(md) {
+            padding-bottom: 128px;
           }
           @include bp(sm) {
             padding: 32px 24px 64px;
@@ -52,7 +47,6 @@
             }
           }
           >svg{
-            top: -7px;
             @include bp(xl) {
               display: none;
             }
@@ -60,21 +54,29 @@
         }
       }
       .col-sm{
+        height: inherit;
+        padding-bottom: 160px;
         @include bp(xl) {
-          height: inherit;
           display: flex;
           align-items: flex-start;
+        }
+        @include bp(md) {
+          padding-bottom: 128px;
         }
         @include bp(sm) {
           width: 100%;
           height: auto;
           display: block;
+          padding-bottom: 0;
         }
         &:before{
           background-color: rgba(0, 0, 0, 0.1);
         }
         >svg{
           top: -7px;
+          @include bp(lg) {
+            top: -8px;
+          }
         }
       }
     }
@@ -161,7 +163,6 @@
   color: $light;
   @include bp(xl) {
     margin-left: calc(100% - 333px);
-    margin-bottom: 64px;
   }
   @include bp(sm) {
     width: 100%;
@@ -177,7 +178,8 @@
 
 .info-pic{
   position: relative;
-  &:hover{
+  margin-left: 1px;
+  &.hover{
     .box-color {
       height: 100%;
       opacity: 1;

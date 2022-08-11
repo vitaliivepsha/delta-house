@@ -23,12 +23,15 @@
         }
         img{
           width: 100%;
-          object-fit: contain;
+          object-fit: cover;
+          min-height: 100vh;
           @include bp(xs) {
             display: none;
           }
           +img{
             display: none;
+            object-fit: contain;
+            min-height: unset;
             @include bp(xs) {
               display: block;
             }

@@ -7,24 +7,36 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: ease-in-out .2s;
-  filter: blur(3px);
-  transform: scale(.8);
-  opacity: 0;
-  visibility: hidden;
+  transition: ease-in-out .3s;
+  transition-delay: .3s;
+  transform: translateY(-110vh);
   z-index: -1;
   &.active{
-    filter: none;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
+    transform: translateY(0);
     z-index: 10;
   }
   .header{
     border-bottom-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    background-color: $dark;
   }
   .header-btn__cat{
     color: $red;
+    rect{
+      transform: rotate(0) translate(-4px, 1px);
+      +rect{
+        transform: rotate(0) translate(1px, -2px);
+      }
+    }
+    &.active{
+      rect{
+        transform: rotate(31deg) translate(1px, -1.5px);
+        +rect{
+          transform: rotate(-30deg) translate(-7px, 0px);
+        }
+      }
+    }
   }
   .header-menu{
     li{
@@ -404,13 +416,7 @@
       left: calc(100% + 1px);
       top: 50%;
       transform: translateY(-50%);
-      width: 315px;
-      height: 400px;
       z-index: 1;
-      @include bp(lg) {
-        width: 280px;
-        height: 365px;
-      }
       img{
         width: 100%;
         height: 100%;
@@ -453,13 +459,7 @@
           left: calc(100% + 1px);
           top: 50%;
           transform: translateY(-50%);
-          width: 315px;
-          height: 400px;
           z-index: 1;
-          @include bp(lg) {
-            width: 280px;
-            height: 365px;
-          }
           img{
             width: 100%;
             height: 100%;
@@ -473,6 +473,14 @@
 
 .menu-catalog__pic{
   transition: none;
+  width: calc(1920px/4 - 48px);
+  height: auto;
+  @include bp(xxxl) {
+    width: calc(25vw - 48px);
+  }
+  @include bp(lg) {
+    width: calc(29vw - 24px);
+  }
   @include bp(md) {
     display: none;
   }

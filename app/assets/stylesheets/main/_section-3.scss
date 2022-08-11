@@ -14,138 +14,191 @@
 }
 
 .slider{
-  width: 1280px;
-  @include bp(xxxl) {
-    width: 66.6vw;
-  }
   @include bp(sm) {
-    width: 100%;
+    display: none;
   }
-  .slick-list{
-    overflow: visible;
+  &__mob{
+    display: none;
+    @include bp(sm) {
+      display: block;
+    }
+  }
+  .slick-track{
+    display: flex;
   }
   .slick-slide{
-    @include bp(sm) {
-      height: 56vw;
-    }
-    @include bp(xs) {
-      height: 64.5vw;
-    }
-    &.slick-current{
-      width: 1280px;
-      @include bp(xxxl) {
-        width: 66.6vw;
-      }
+    .slide{
+      display: flex !important;
+      height: 620px;
+      position: relative;
+      overflow: hidden;
       @include bp(sm) {
-        width: 100vw;
+        height: 56vw;
       }
-      .slide{
-        >a{
-          right: auto;
+      @include bp(xs) {
+        height: 64.5vw;
+      }
+      .col{
+        transition: width .4s ease-in-out;
+        position: relative;
+        height: 100%;
+        >img{
+          height: 100%;
+          object-fit: cover;
           @include bp(sm) {
-            left: 24px !important;
+            width: 100%;
           }
-          @include bp(xxs) {
-            left: 16px !important;
+        }
+        >a{
+          display: flex;
+          align-items: center;
+          position: absolute;
+          color: #fff;
+          bottom: 32px;
+          right: 44px;
+          left: auto;
+          @include bp(xl) {
+            right: 24px;
           }
-          span{
+          @include bp(sm) {
+            right: auto;
+            bottom: 24px;
+          }
+          &:hover{
+            text-decoration: none;
+            color: $red;
+            svg{
+              path{
+                fill: $red;
+                &:last-child{
+                  fill: none;
+                  stroke: $red;
+                }
+              }
+            }
+          }
+          &:focus{
+            text-decoration: none;
+          }
+          div{
+            display: flex;
+            font-weight: 800;
             font-size: 40px;
-            margin-right: 20px;
+            line-height: 48px;
+            text-transform: uppercase;
+            margin-right: 0;
             @include bp(md) {
-              font-size: 32px;
+              line-height: 38px;
             }
             @media only screen and (max-width: 799px) {
+              font-size: 28px;
+              line-height: 34px;
+            }
+            @include bp(sm) {
               font-size: 28px;
             }
             @include bp(xs) {
               font-size: 24px;
+              line-height: 29px;
             }
             @include bp(xxs) {
               font-size: 20px;
+              line-height: 26px;
+            }
+            span{
+              width: 0;
+              height: 48px;
+              overflow: hidden;
+              transition: width .4s ease-in-out;
             }
           }
           svg{
-            display: block;
+            display: none;
+            @include bp(md) {
+              width: 24px;
+              height: 24px;
+            }
+            @include bp(xs) {
+              width: 17px;
+              height: 17px;
+            }
+            @include bp(xxs) {
+              width: 15px;
+              height: 15px;
+            }
           }
         }
-      }
-      +.slick-slide{
-        width: 320px;
-        @include bp(xxxl) {
-          width: calc(33.3vw / 2);
+        &.visible{
+          >a{
+            div{
+              span{
+                width: max-content;
+              }
+            }
+            svg{
+              display: block;
+              margin-left: 20px;
+            }
+          }
         }
-        @include bp(sm) {
-          width: 100vw;
-        }
-        +.slick-slide{
+        &-lg{
           width: 160px;
           @include bp(xxxl) {
             width: calc(33.3vw / 4);
           }
-          @include bp(sm) {
-            width: 100vw;
-          }
-          +.slick-slide{
-            width: 160px;
+          &.visible{
+            width: 1280px;
             @include bp(xxxl) {
-              width: calc(33.3vw / 4);
+              width: 66.6vw;
             }
-            @include bp(sm) {
-              width: 100vw;
+          }
+          &:not(.visible){
+            >a{
+              &.slider-pos{
+                right: 44px;
+                left: auto !important;
+              }
             }
           }
         }
-      }
-    }
-    &:not(.slick-current){
-      pointer-events: none;
-      @include bp(sm) {
-        pointer-events: auto;
-      }
-      .slide{
-        >a{
-          left: auto !important;
+        &-md{
+          width: 320px;
+          @include bp(xxxl) {
+            width: calc(33.3vw / 2);
+          }
+          &.visible{
+            width: 1280px;
+            @include bp(xxxl) {
+              width: 66.6vw;
+            }
+          }
         }
-      }
-    }
-    > div{
-      @include bp(sm) {
-        height: 100%;
-      }
-    }
-    .slide{
-      height: 620px;
-      overflow: hidden;
-      position: relative;
-      @include bp(xxxl) {
-        height: 33.3vw;
-      }
-      @include bp(sm) {
-        height: 100%;
+        &-sm{
+          width: 160px;
+          @include bp(xxxl) {
+            width: calc(33.3vw / 4);
+          }
+          &.visible{
+            width: 1280px;
+            @include bp(xxxl) {
+              width: 66.6vw;
+            }
+          }
+        }
       }
       >img{
         height: 100%;
+        width: 100%;
         object-fit: cover;
-        transform: scale(1);
-        transition: linear 1.2s;
-        @include bp(sm) {
-          width: 100%;
-        }
       }
       >a{
-        display: flex;
-        align-items: center;
+        display: inline;
         position: absolute;
         color: #fff;
         bottom: 32px;
-        right: 44px;
-        left: auto;
-        transition: linear .4s;
-        @include bp(xl) {
-          right: 24px;
-        }
-        @include bp(sm) {
-          right: auto;
+        left: 24px;
+        @include bp(xs) {
+          left: 16px;
           bottom: 24px;
         }
         &:hover{
@@ -161,55 +214,29 @@
             }
           }
         }
+        &:focus{
+          text-decoration: none;
+        }
         span{
           font-weight: 800;
-          font-size: 0;
-          line-height: 48px;
+          font-size: 28px;
+          line-height: 34px;
           text-transform: uppercase;
-          margin-right: 0;
-          @include bp(md) {
-            line-height: 38px;
-          }
-          @media only screen and (max-width: 799px) {
-            font-size: 28px;
-            line-height: 34px;
-          }
-          @include bp(sm) {
-            font-size: 28px;
-          }
+          margin-right: 20px;
           @include bp(xs) {
             font-size: 24px;
             line-height: 29px;
+            margin-right: 16px;
           }
           @include bp(xxs) {
             font-size: 20px;
             line-height: 26px;
-          }
-          &:first-letter{
-            font-size: 40px;
-            @include bp(md) {
-              font-size: 32px;
-            }
-            @media only screen and (max-width: 799px) {
-              font-size: 28px;
-              line-height: 34px;
-            }
-            @include bp(xs) {
-              font-size: 24px;
-              line-height: 29px;
-            }
-            @include bp(xxs) {
-              font-size: 20px;
-              line-height: 26px;
-            }
+            margin-right: 10px;
           }
         }
         svg{
-          display: none;
-          @include bp(md) {
-            width: 24px;
-            height: 24px;
-          }
+          width: 24px;
+          height: 24px;
           @include bp(xs) {
             width: 17px;
             height: 17px;
@@ -218,37 +245,6 @@
             width: 15px;
             height: 15px;
           }
-        }
-      }
-    }
-  }
-}
-
-@keyframes motion-blur {
-  0% {
-    filter: blur(10px);
-  }
-  100% {
-    filter: blur(10px);
-  }
-
-}
-.do-tans {
-  animation: motion-blur 0.1s linear forwards,
-  motion-blur 1.5s linear reverse forwards 0.1s;
-  .slick-slide{
-    .slide{
-      >a{
-        opacity: 0;
-      }
-    }
-    &.slick-current{
-      .slide{
-        >img{
-          transform: scale(1.05);
-        }
-        >a{
-          bottom: 10px;
         }
       }
     }
@@ -288,6 +284,15 @@
     width: 100%;
     display: flex;
     align-items: flex-end;
+    @include bp(sm) {
+      display: none;
+    }
+    +.slick-dots{
+      display: none;
+      @include bp(sm) {
+        display: flex;
+      }
+    }
     li{
       width: 100%;
       display: none;
@@ -313,6 +318,11 @@
           height: 2px;
           background: #D9D9D9;
           animation: countdown 5.5s linear forwards;
+        }
+        &.pause{
+          &::after {
+            animation-play-state: paused;
+          }
         }
       }
     }
