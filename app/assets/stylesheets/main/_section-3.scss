@@ -271,6 +271,15 @@
   color: $light;
   cursor: pointer;
   transition: linear .2s;
+  @include bp(sm) {
+    display: none;
+  }
+  +.slider-arrow{
+    display: none;
+    @include bp(sm) {
+      display: block;
+    }
+  }
   &:hover{
     color: $red;
   }
@@ -282,15 +291,15 @@
   pointer-events: none;
   .slick-dots{
     width: 100%;
-    display: flex;
+    display: flex !important;
     align-items: flex-end;
     @include bp(sm) {
-      display: none;
+      display: none !important;
     }
     +.slick-dots{
-      display: none;
+      display: none !important;
       @include bp(sm) {
-        display: flex;
+        display: flex !important;
       }
     }
     li{

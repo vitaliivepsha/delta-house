@@ -121,6 +121,9 @@
       a{
         span{
           flex-basis: max-content;
+          @include bp(xs) {
+            flex-basis: unset;
+          }
         }
       }
     }
@@ -149,6 +152,7 @@
       text-decoration: none;
       position: relative;
       @include bp(xs) {
+        width: 100%;
         max-width: unset;
       }
       &:hover{
@@ -168,7 +172,7 @@
         display: flex;
         flex-basis: 0;
         @include bp(xs) {
-          flex-basis: max-content;
+          flex-basis: unset;
         }
       }
       svg{
