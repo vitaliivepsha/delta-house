@@ -2,6 +2,10 @@
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  @include bp(md) {
+    display: block;
+    max-width: 100vw;
+  }
 }
 
 .contacts__inner {
@@ -163,7 +167,24 @@
     @include bp(sm) {
       font-size: 44px;
     }
-
+    @include bp(xxs) {
+      font-size: 36px;
+    }
+  }
+  .words-slider{
+    max-width: calc(100vw - 32px);
+    .slick-track{
+      display: flex;
+      justify-content: flex-end;
+      width: max-content !important;
+    }
+    .slick-slide{
+      display: none;
+      transition: none !important;
+      &.slick-current{
+        display: block;
+      }
+    }
   }
 }
 

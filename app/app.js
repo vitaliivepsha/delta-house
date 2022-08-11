@@ -15,21 +15,16 @@ var $ = require('jquery');
 require('bootstrap-sass');
 
 // Modules
-var Forms = require('_modules/forms');
-var Popup = require('_modules/popup');
 var Slider = require('_modules/slider');
 require('../node_modules/sweetalert2/dist/sweetalert2');
 require('../node_modules/mark.js/dist/jquery.mark.min');
 require('../node_modules/ez-plus/src/jquery.ez-plus');
-import Typed from 'typed.js';
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');
 
 // Are you ready?
 $(function () {
-    new Forms();
-    new Popup();
     new Slider();
 
     setTimeout(function () {
@@ -40,6 +35,51 @@ $(function () {
     setTimeout(function () {
         $('header, footer, main, .menu-catalog').removeAttr('style');
     }, 1000);
+
+    // animations
+
+    setTimeout(function () {
+        $('.line1').addClass('animated');
+    }, 1200);
+
+    setTimeout(function () {
+        $('.line2').addClass('animated');
+    }, 1400);
+
+    setTimeout(function () {
+        $('.line3').addClass('animated');
+    }, 1600);
+
+    setTimeout(function () {
+        $('.line4').addClass('animated');
+    }, 1800);
+
+    setTimeout(function () {
+        $('.main-text').addClass('animated');
+        $('body').removeClass('overflow');
+    }, 2300);
+
+    var $horizontal_left = $('.line2'),
+        $horizontal_right = $('.line3');
+
+    $(window).scroll(function () {
+        var s = $(this).scrollTop(),
+            d = $(document).height(),
+            c = $(this).height(),
+            scrollPercent = (s / (d - c));
+
+        var position_left = (scrollPercent * ($(document).width()*3 - $horizontal_left.width()));
+        var position_right = (scrollPercent * ($(document).width()*3 - $horizontal_right.width()));
+        if (s > 0){
+            $horizontal_left.css({
+                'right': position_left
+            });
+
+            $horizontal_right.css({
+                'left': position_right
+            });
+        }
+    });
 
     // search
 
@@ -177,7 +217,8 @@ $(function () {
     }
 
     $('.slider .col').each(function (){
-        $(this).on('mouseover', function (){
+        $(this).on('mouseover', function (e){
+            e.preventDefault();
             $(this).addClass('visible').siblings().removeClass('visible');
         });
     });
@@ -185,7 +226,7 @@ $(function () {
     $('.slider').each(function (){
         var $slider = $(this);
         $slider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
-            $('.slider .col-lg').addClass('visible').siblings().removeClass('visible');
+            $('.slider .slick-slider:not(.slick-current) .col-lg').addClass('visible').siblings().removeClass('visible');
         });
     });
     $('.slider').on('mouseover', function (){
@@ -194,58 +235,6 @@ $(function () {
     $('.slider').on('mouseleave', function (){
         $('.slick-dots button').removeClass('pause');
     });
-
-    /*$('.slider').on('init', function(event, slick, currentSlide, nextSlide) {
-        $('.slick-slide.slick-current').addClass('current');
-        $('.slick-slide.slick-current').next().addClass('next-slide');
-    });
-
-    var settings = {
-        slidesToShow: 1,
-        arrows: true,
-        dots: true,
-        infinite: true,
-        autoplay: true,
-        speed: 700,
-        autoplaySpeed: 4500,
-        prevArrow: ".slider-prev",
-        nextArrow: ".slider-next",
-        appendDots: ".slider-dots"
-    }
-
-    $('.slider').slick({
-        slidesToShow: 1,
-        arrows: true,
-        dots: true,
-        infinite: true,
-        speed: 700,
-        autoplaySpeed: 4500,
-        prevArrow: ".slider-prev",
-        nextArrow: ".slider-next",
-        appendDots: ".slider-dots"
-    });
-
-    $('.slider').each(function (){
-        var $slider = $(this);
-        $slider.find('.slick-slide').each(function (){
-            $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-                var nextPanel = $('[data-slick-index=' + nextSlide + ']');
-                $(nextPanel).addClass('current').siblings().removeClass('current');
-                $(nextPanel).next().addClass('next-slide').siblings().removeClass('next-slide');
-                //$('.slick-list').addClass('do-tans');
-
-                $('.slider').slick(settings);
-                setTimeout(function () {
-                    $slider.slick('slickGoTo', nextSlide);
-                }, 4500);
-            });
-            $slider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
-                //$('.slick-list').removeClass('do-tans');
-                //$slider.slick('refresh');
-                //$('.slider-next').trigger('click');
-            });
-        });
-    });*/
 
     // mobile menu
 
@@ -303,7 +292,6 @@ $(function () {
                 parent_top = item.parent().offset().top,
                 parent_bottom = wh - parent_top - ph;
             //console.log(top, parent_top, bottom, parent_bottom);
-            //item.removeClass('fixed-bot').removeClass('fixed-top');
             if (parent_top <= (87 + ih / 2 - ph)) {
                 item.addClass('fixed-top').removeClass('fixed-bot');
             }
@@ -331,44 +319,6 @@ $(function () {
             setTimeout(function () {
                 picPos();
             }, 1);
-        });
-    }
-
-    // typing text
-
-    if($('#typing_text').length) {
-        var typed = new Typed('#typing_text', {
-
-            strings: [
-                'Fasades.',
-                'Design.',
-                'Curtain wall.',
-                /*'Unitized facades.',
-                'Rainscreen cladding.',
-                'Sliding system.',
-                'Wintergardens and domes.',
-                'Inspect screening system.',
-                'Sun protection systems.',
-                'Parapets, canopies.',*/
-                'Maintenance.',
-                'Aluminum.',
-                'Aluminum.',
-                'Aluminum.'
-
-            ],
-            stringsElement: null,
-            typeSpeed: 150,
-            startDelay: 2500,
-            backSpeed: 40,
-            smartBackspace: true,
-            shuffle: false,
-            backDelay: 3000,
-            fadeOut: false,
-            fadeOutClass: 'typed-fade-out',
-            fadeOutDelay: 700,
-            loop: true,
-            loopCount: Infinity,
-            showCursor: false
         });
     }
 

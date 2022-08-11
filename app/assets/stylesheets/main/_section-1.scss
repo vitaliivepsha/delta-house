@@ -20,6 +20,7 @@
     .grid{
       @include bp(sm) {
         position: static;
+        height: auto;
       }
       .col-lg{
         @include bp(sm) {
@@ -57,7 +58,41 @@
   transform: translateX(-50%);
   pointer-events: none;
   object-fit: contain;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 845px;
+  max-width: 100%;
   @include bp(xl) {
+    font-size: 6.25vw;
+    line-height: 7.5vw;
+    width: max-content;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 56px auto 0;
+  }
+  @include bp(md) {
+    font-size: 7.1vw;
+    line-height: 8.6vw;
+    max-width: calc(100vw - 48px);
+  }
+  @include bp(sm) {
+    font-size: 7vw;
+    line-height: 8.5vw;
+  }
+  @include bp(xs) {
+    margin-top: 24px;
+    max-width: calc(100vw - 32px);
+    font-size: 13.3vw;
+    line-height: 16vw;
+  }
+  /*@include bp(xl) {
     display: flex;
     justify-content: center;
     position: relative;
@@ -72,6 +107,51 @@
     max-width: calc(100vw - 32px);
     margin-top: 24px;
     display: none;
+  }*/
+  .line{
+    transition: linear .4s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    position: relative;
+    &.animated{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0px);
+    }
+    &.line1{}
+    &.line2{
+      transform: translateX(283px);
+      margin-top: -11px;
+      @include bp(xl) {
+        margin-top: -1.3vw;
+        transform: translateX(28vw);
+      }
+      @include bp(xs) {
+        transform: translateX(40vw);
+      }
+    }
+    &.line3{
+      transform: translateX(420px);
+      margin-top: -11px;
+      @include bp(xl) {
+        margin-top: -1.3vw;
+        transform: translateX(41vw);
+      }
+      @include bp(xs) {
+        transform: translateX(13vw);
+      }
+    }
+    &.line4{
+      left: 232px;
+      margin-top: -11px;
+      @include bp(xl) {
+        margin-top: -1.3vw;
+      }
+      @include bp(xs) {
+        left: 0;
+      }
+    }
   }
   &__mob {
     display: none;
@@ -139,6 +219,11 @@
 .main-text{
   margin-top: 404px;
   width: 195px;
+  opacity: 0;
+  transition: linear .5s;
+  &.animated{
+    opacity: 1;
+  }
   @include bp(md) {
     margin-top: 45vw;
   }
