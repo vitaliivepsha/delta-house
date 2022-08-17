@@ -207,6 +207,18 @@ $(function () {
 
     setTimeout(function () {
         var screen_pos = $('.info-section').offset().top;
+        var wScroll = $(this).scrollTop();
+        if (wScroll >= screen_pos - 500){
+            setTimeout(function () {
+                $('.info-subtitle').addClass('animated');
+            }, 500);
+            setTimeout(function () {
+                $('.info-title').addClass('animated');
+            }, 1200);
+            setTimeout(function () {
+                $('.info-text').addClass('animated');
+            }, 1900);
+        }
         $(window).scroll(function () {
             var wScroll = $(this).scrollTop();
             if (wScroll >= screen_pos - 500){

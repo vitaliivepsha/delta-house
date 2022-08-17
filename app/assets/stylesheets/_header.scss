@@ -301,9 +301,13 @@
     @include bp(xs) {
       color: #fff;
     }
+    @supports (-webkit-touch-callout: none) {
+      font-size: 16px;
+    }
     &::placeholder{
       color: #000;
       opacity: 0.4;
+      font-size: 14px;
       @include bp(xs) {
         color: #fff;
       }
