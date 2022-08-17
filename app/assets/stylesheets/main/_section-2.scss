@@ -118,9 +118,29 @@
   font-size: 14px;
   line-height: 17px;
   color: $light;
+  transition: linear .4s;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  position: relative;
+  &.animated{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
 }
 
 .info-title {
+  transition: linear .4s;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  position: relative;
+  &.animated{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
   span {
     position: relative;
     margin: 0;
@@ -161,6 +181,16 @@
   line-height: 140%;
   width: 224px;
   color: $light;
+  transition: linear .4s;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  position: relative;
+  &.animated{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
   @include bp(xl) {
     margin-left: calc(100% - 333px);
   }
@@ -179,22 +209,22 @@
 .info-pic{
   position: relative;
   margin-left: 1px;
+  overflow: hidden;
   &.hover{
     .box-color {
-      height: 100%;
-      opacity: 1;
+      transform: translateY(0);
     }
   }
   .box-color {
     overflow: hidden;
     width: 100%;
     position: absolute;
-    height: 0;
     left: 0;
     top: 0;
-    opacity: 0;
-    transition: opacity ease-in-out .3s, height ease-in-out .6s;
+    bottom: 0;
     z-index: 1;
+    transform: translateY(-100%);
+    transition: linear .4s;
   }
   img{
     width: 100%;

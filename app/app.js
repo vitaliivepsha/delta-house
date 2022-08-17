@@ -56,13 +56,32 @@ $(function () {
 
     setTimeout(function () {
         $('.main-text').addClass('animated');
-        $('body').removeClass('overflow');
-    }, 2300);
+        //$('body').removeClass('overflow');
+    }, 2400);
+
+    setTimeout(function () {
+        $('.main-pic__wrapper').addClass('animated');
+        //$('body').removeClass('overflow');
+    }, 3000);
 
     var $horizontal_left = $('.line2'),
         $horizontal_right = $('.line3');
-
     $(window).scroll(function () {
+        var wScroll = $(this).scrollTop(),
+            h = $(this).height();
+        if ($(window).width() > 1249) {
+            $horizontal_left.css({left: "-" + wScroll / 4 + "%"});
+            $horizontal_right.css({right: "-" + wScroll / 4 + "%"});
+        }
+        //$('.sticky-content').css({top: "calc(" + wScroll + 716 + "px)"});
+        /*if (wScroll > h*1.4){
+            $('.sticky-content').addClass('scrolled');
+        }
+        else{
+            $('.sticky-content').removeClass('scrolled');
+        }*/
+    });
+    /*$(window).scroll(function () {
         var s = $(this).scrollTop(),
             d = $(document).height(),
             c = $(this).height(),
@@ -79,7 +98,7 @@ $(function () {
                 'left': position_right
             });
         }
-    });
+    });*/
 
     // search
 
@@ -184,6 +203,26 @@ $(function () {
         }, 1000);
     }
 
+    // second screen text animation*
+
+    setTimeout(function () {
+        var screen_pos = $('.info-section').offset().top;
+        $(window).scroll(function () {
+            var wScroll = $(this).scrollTop();
+            if (wScroll >= screen_pos - 500){
+                setTimeout(function () {
+                    $('.info-subtitle').addClass('animated');
+                }, 500);
+                setTimeout(function () {
+                    $('.info-title').addClass('animated');
+                }, 1200);
+                setTimeout(function () {
+                    $('.info-text').addClass('animated');
+                }, 1900);
+            }
+        });
+    }, 1000);
+
     // slider elements position
 
     if($('.slider-pos').length){
@@ -234,6 +273,12 @@ $(function () {
     });
     $('.slider').on('mouseleave', function (){
         $('.slick-dots button').removeClass('pause');
+    });
+
+    $(window).resize(function (){
+        setTimeout(function () {
+            $('.slider').slick('setPosition');
+        }, 500);
     });
 
     // mobile menu

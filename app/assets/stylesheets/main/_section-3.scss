@@ -1,6 +1,7 @@
 .slider-section{
   background-color: $dark;
   padding-bottom: 164px;
+  z-index: 1;
   @include bp(xl) {
     padding-bottom: 128px;
   }
@@ -45,6 +46,9 @@
       height: 620px;
       position: relative;
       overflow: hidden;
+      @include bp(xxl) {
+        height: 33vw;
+      }
       @include bp(sm) {
         height: 56vw;
       }
@@ -69,10 +73,8 @@
         }
         >img{
           height: 100%;
+          width: 100%;
           object-fit: cover;
-          @include bp(sm) {
-            width: 100%;
-          }
         }
         >a{
           display: flex;
@@ -136,6 +138,12 @@
               height: 48px;
               overflow: hidden;
               transition: width .4s ease-in-out;
+              @include bp(md) {
+                height: 38px;
+              }
+              @media only screen and (max-width: 799px) {
+                height: 34px;
+              }
             }
           }
           svg{
@@ -156,6 +164,11 @@
         }
         &.visible{
           >a{
+            right: auto;
+            left: 44px;
+            @include bp(xl) {
+              left: 24px;
+            }
             div{
               span{
                 width: max-content;
@@ -183,6 +196,9 @@
               &.slider-pos{
                 right: 44px;
                 left: auto !important;
+                @include bp(xl) {
+                  right: 24px;
+                }
               }
             }
           }
@@ -286,10 +302,11 @@
 
 .slider-nav{
   position: relative;
-  display: flex;
+  display: none;
   align-items: flex-end;
   margin-top: 32px;
   @include bp(sm) {
+    display: flex;
     margin-top: 16px;
     left: 24px !important;
   }
@@ -327,7 +344,7 @@
     display: flex !important;
     align-items: flex-end;
     @include bp(sm) {
-      display: none !important;
+      //display: none !important;
     }
     +.slick-dots{
       display: none !important;

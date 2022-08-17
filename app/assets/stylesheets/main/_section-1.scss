@@ -1,8 +1,30 @@
+.sticky-content{
+  height: 200vh;
+  @include bp(xl) {
+    height: auto;
+  }
+}
+
+.sticky-inner{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: calc(716px + 87px);
+  @include bp(xl) {
+    position: static;
+    height: auto;
+    min-height: unset;
+  }
+}
+
 .main-section{
-  height: 716px;
+  //height: 140vh;
+  height: calc(100vh - 87px);
+  min-height: 716px;
   z-index: 1;
   @include bp(xl) {
     height: auto;
+    min-height: unset;
     display: flex;
   }
   @include bp(sm) {
@@ -18,6 +40,10 @@
       flex-direction: column-reverse;
     }
     .grid{
+      height: inherit;
+      @include bp(xl) {
+        height: 100%;
+      }
       @include bp(sm) {
         position: static;
         height: auto;
@@ -67,6 +93,9 @@
   align-items: flex-start;
   width: 845px;
   max-width: 100%;
+  @media only screen and (min-width: 1921px) {
+    top: 28vh;
+  }
   @include bp(xl) {
     font-size: 6.25vw;
     line-height: 7.5vw;
@@ -184,6 +213,14 @@
   overflow: hidden;
   position: relative;
   cursor: url('../images/icons/cursor.svg'), auto;
+  opacity: 0;
+  transition: linear .5s;
+  &.animated{
+    opacity: 1;
+  }
+  @media only screen and (min-width: 1921px) {
+    margin-top: 40vh;
+  }
   @include bp(xl) {
     margin-top: 17px;
     margin-bottom: 80px;
@@ -223,6 +260,9 @@
   transition: linear .5s;
   &.animated{
     opacity: 1;
+  }
+  @media only screen and (min-width: 1921px) {
+    margin-top: 54vh;
   }
   @include bp(md) {
     margin-top: 45vw;
