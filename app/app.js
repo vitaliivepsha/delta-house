@@ -203,12 +203,14 @@ $(function () {
         }, 1000);
     }
 
-    // second screen text animation*
+    // second screen text animation
 
-    setTimeout(function () {
-        var screen_pos = $('.info-section').offset().top;
-        var wScroll = $(this).scrollTop();
-        if (wScroll >= screen_pos - 500){
+    /*setTimeout(function () {
+        var screen_pos = $('.info-section').offset().top,
+            screen_height = $('.info-section').height(),
+            wScroll = $(this).scrollTop(),
+            scrollBottom = screen_pos + screen_height;
+        /!*if (wScroll >= screen_pos - 200 && wScroll < scrollBottom){
             setTimeout(function () {
                 $('.info-subtitle').addClass('animated');
             }, 500);
@@ -219,9 +221,21 @@ $(function () {
                 $('.info-text').addClass('animated');
             }, 1900);
         }
-        $(window).scroll(function () {
-            var wScroll = $(this).scrollTop();
-            if (wScroll >= screen_pos - 500){
+        else if (wScroll < screen_pos + 200){
+            $('.info-subtitle').removeClass('animated');
+            $('.info-title').removeClass('animated');
+            $('.info-text').removeClass('animated');
+        }
+        else if (wScroll > scrollBottom){
+            $('.info-subtitle').removeClass('animated');
+            $('.info-title').removeClass('animated');
+            $('.info-text').removeClass('animated');
+        }*!/
+        /!*$(window).scroll(function () {
+            var wScroll = $(this).scrollTop(),
+                scrollBottom = screen_pos + screen_height;
+            console.log(wScroll, screen_pos - 500, scrollBottom);
+            if (wScroll >= screen_pos - 500 && wScroll < scrollBottom){
                 setTimeout(function () {
                     $('.info-subtitle').addClass('animated');
                 }, 500);
@@ -232,8 +246,50 @@ $(function () {
                     $('.info-text').addClass('animated');
                 }, 1900);
             }
-        });
-    }, 1000);
+            else if (wScroll > scrollBottom){
+                $('.info-subtitle').removeClass('animated');
+                $('.info-title').removeClass('animated');
+                $('.info-text').removeClass('animated');
+            }
+            /!*else if (wScroll > scrollBottom){
+                $('.info-subtitle').removeClass('animated');
+                $('.info-title').removeClass('animated');
+                $('.info-text').removeClass('animated');
+            }*!/
+        });*!/
+    }, 1000);*/
+
+    if ($('.info-section').length){
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight(),
+                screen_pos = $('.info-section').offset().top,
+                screen_height = $('.info-section').innerHeight(),
+                wScroll = $(this).scrollTop();
+            $('.fade').each(function() {
+                /* Check the location of each desired element */
+                var objectPos = $('.info-section').offset().top + 400;
+
+                /* If the element is completely within bounds of the window, fade it in */
+                if (objectPos < windowBottom && wScroll < screen_pos + screen_height) { //object comes into view (scrolling down)
+                    if (!$(this).hasClass('animated')) {
+                        setTimeout(function () {
+                            $('.info-subtitle').addClass('animated');
+                        }, 500);
+                        setTimeout(function () {
+                            $('.info-title').addClass('animated');
+                        }, 1200);
+                        setTimeout(function () {
+                            $('.info-text').addClass('animated');
+                        }, 1900);
+                    }
+                } else if (wScroll > screen_pos + screen_height){ //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                }
+            });
+        }).scroll();
+    }
 
     // slider elements position
 
@@ -377,6 +433,99 @@ $(function () {
                 picPos();
             }, 1);
         });
+    }
+
+    // about animation
+
+    if ($('.about-us').length){
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight(),
+                screen_pos = $('.about-us').offset().top,
+                screen_height = $('.about-us').innerHeight(),
+                wScroll = $(this).scrollTop();
+            $('.fade').each(function() {
+                /* Check the location of each desired element */
+                var objectPos = $('.about-us').offset().top;
+
+                /* If the element is completely within bounds of the window, fade it in */
+                if (objectPos < windowBottom && wScroll < screen_pos + screen_height) { //object comes into view (scrolling down)
+                    if (!$(this).hasClass('animated')) {
+                        setTimeout(function () {
+                            $('.about-us__pic').addClass('animated');
+                        }, 1500);
+                        setTimeout(function () {
+                            $('.about-us__firm').addClass('animated');
+                        }, 2000);
+                        setTimeout(function () {
+                            $('.about-us__title').addClass('animated');
+                        }, 2500);
+                        setTimeout(function () {
+                            $('.about-us__about').addClass('animated');
+                        }, 3000);
+                        setTimeout(function () {
+                            $('.about-us__num1').addClass('animated');
+                        }, 3500);
+                        setTimeout(function () {
+                            $('.about-us__num2').addClass('animated');
+                        }, 4000);
+                        setTimeout(function () {
+                            $('.about-us__num3').addClass('animated');
+                        }, 4500);
+                    }
+                } else if (wScroll > screen_pos + screen_height){ //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                }
+            });
+        }).scroll();
+    }
+
+    if ($('.about-us-more').length){
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight(),
+                screen_pos = $('.about-us-more').offset().top,
+                screen_height = $('.about-us-more').innerHeight(),
+                wScroll = $(this).scrollTop();
+            $('.fade_bot').each(function() {
+                /* Check the location of each desired element */
+                var objectPos = $('.about-us-more').offset().top + 100;
+
+                /* If the element is completely within bounds of the window, fade it in */
+                if (objectPos < windowBottom && wScroll < screen_pos + screen_height) { //object comes into view (scrolling down)
+                    if (!$(this).hasClass('animated')) {
+                        setTimeout(function () {
+                            $('.about-us-more__pic').addClass('animated');
+                        }, 500);
+                        setTimeout(function () {
+                            $('.about-us-more__line1').addClass('animated');
+                        }, 1000);
+                        setTimeout(function () {
+                            $('.about-us-more__line2').addClass('animated');
+                        }, 1500);
+                        setTimeout(function () {
+                            $('.about-us-more__line3').addClass('animated');
+                        }, 2000);
+                        setTimeout(function () {
+                            $('.about-us-more__line4').addClass('animated');
+                        }, 2500);
+                        setTimeout(function () {
+                            $('.about-us-more__line5').addClass('animated');
+                        }, 3000);
+                        setTimeout(function () {
+                            $('.about-us-more__line6').addClass('animated');
+                        }, 3500);
+                        setTimeout(function () {
+                            $('.about-us-more__line7').addClass('animated');
+                        }, 4000);
+                    }
+                } else if (wScroll > screen_pos + screen_height){ //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).hasClass('animated')) {$(this).removeClass('animated');}
+                }
+            });
+        }).scroll();
     }
 
     // lazy load

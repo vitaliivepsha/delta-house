@@ -75,6 +75,8 @@
   right: -380px;
   max-width: 760px;
   z-index: -1;
+  transform: scale(.4);
+  transition: linear .4s;
   @media (max-width: 1160px) {
     max-width: 705px;
     right: -353px;
@@ -89,7 +91,10 @@
     margin-bottom: 24px;
   }
 
-
+  &.animated{
+    opacity: 1;
+    transform: scale(1);
+  }
   & picture {
     width: 100%;
     height: 100%;
@@ -133,15 +138,31 @@
   font-size: 14px;
   line-height: 17px;
   color: $accent;
+  transform: translateY(20px);
+  position: relative;
+  transition: linear .4s;
   @media (max-width: 833px) {
     display: none;
+  }
+
+  &.animated{
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
 .about-us__title {
   margin-bottom: 32px;
+  transform: translateY(20px);
+  position: relative;
+  transition: linear .4s;
   @media (max-width: 833px) {
     display: none;
+  }
+
+  &.animated{
+    opacity: 1;
+    transform: translateY(0px);
   }
 
   & span {
@@ -193,6 +214,9 @@
   width: 263px;
   margin-right: 129px;
   margin-left: 95px;
+  transform: translateY(20px);
+  position: relative;
+  transition: linear .4s;
   @media (max-width: 1270px) {
     margin-right: 66px;
   }
@@ -213,6 +237,11 @@
   }
   @include bp(xs) {
     margin-bottom: 24px;
+  }
+
+  &.animated{
+    opacity: 1;
+    transform: translateY(0px);
   }
 
 
@@ -248,11 +277,19 @@
 
   & div {
     width: 177px;
+    transform: translateY(20px);
+    position: relative;
+    transition: linear .4s;
     @include bp(sm) {
       width: 33.333%;
     }
     @include bp(xs) {
       width: 100%;
+    }
+
+    &.animated{
+      opacity: 1;
+      transform: translateY(0px);
     }
 
     &:nth-child(2) {
@@ -404,6 +441,11 @@
     line-height: 19px;
     text-transform: uppercase;
     color: #fff;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    transition: linear .4s;
     @include bp(md) {
       max-width: 835px;
       margin: 0 auto;
@@ -418,9 +460,21 @@
       margin-left: 16px;
       }
 
-    &:hover svg path {
-      fill: $red;
-      stroke: $red;
+
+    &.animated{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    &:hover {
+      text-decoration: none;
+      color: $red;
+      path{
+        fill: $red;
+        &:last-child{
+          fill: none;
+          stroke: $red;
+        }
+      }
     }
   }
 }
@@ -439,11 +493,20 @@
 .about-us-more__pic {
   width: 100%;
   height: 533px;
+  opacity: 0;
+  transform: scale(.4);
+  position: relative;
+  transition: linear .4s;
   @media (max-width: 1440px) {
     height: 553px;
     }
   @media (max-width: 991px) {
     height: 50vw;
+  }
+
+  &.animated{
+    opacity: 1;
+    transform: scale(1);
   }
 
 
@@ -475,6 +538,10 @@
     line-height: 48px;
     color: #FFFFFF;
     text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    transition: linear .4s;
     @include bp(sm) {
       font-size: 24px;
       line-height: 29px;
@@ -482,6 +549,11 @@
     @include bp(xs) {
       margin-bottom: 25px;
       }
+
+    &.animated{
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 
   & p {
@@ -490,6 +562,15 @@
     font-size: 18px;
     line-height: 140%;
     color: $light;
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    transition: linear .4s;
+
+    &.animated{
+      opacity: 1;
+      transform: translateY(0px);
+    }
 
     & + p {
       margin-top: 18px;
