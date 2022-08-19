@@ -121,6 +121,9 @@
     height: calc(100% - 128px);
     padding-left: 24px;
     overflow: auto;
+    @supports (-webkit-touch-callout: none) {
+      padding-bottom: 60px;
+    }
     &::-webkit-scrollbar {
       overflow-y: scroll;
       background: transparent;
@@ -252,12 +255,12 @@
         width: 100%;
       }
       &:after{
-        left: calc(75vw - 2px);
+        left: calc(75vw - 3px);
         @include bp(lg) {
-          left: calc(71vw - 2px);
+          left: calc(71vw - 3px);
         }
         @include bp(md) {
-          left: calc(100vw - 26px);
+          left: calc(100vw - 27px);
         }
         @include bp(sm) {
           display: none;
@@ -425,6 +428,7 @@
     }
     >ul{
       display: none;
+      font-weight: 400;
       >li{
         position: relative;
         &:hover{

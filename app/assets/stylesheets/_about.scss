@@ -159,6 +159,9 @@
     @media (max-width: 1430px) {
       font-size: 56px;
     }
+    @include bp(md) {
+      background-position: left bottom 13px;
+    }
 
   }
 
@@ -301,7 +304,7 @@
       @media (max-width: 359px) {
         display: inline;
         font-size: 38px;
-        background-position: left bottom 11px;
+        background-position: left bottom 11.5px;
       }
     }
 
