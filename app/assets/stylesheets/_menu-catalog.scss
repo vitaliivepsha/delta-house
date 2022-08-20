@@ -288,15 +288,17 @@
 
 .menu-catalog__address{
   margin-top: 92px;
-  width: 200px;
-  max-width: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   color: $light;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   @include bp(sm) {
+    display: block;
     width: auto;
     text-align: center;
     position: relative;
@@ -310,6 +312,13 @@
     left: -8px;
     padding: 0 16px;
   }
+  >div{
+    width: 200px;
+    max-width: 100%;
+    @include bp(sm) {
+      width: auto;
+    }
+  }
   >a{
     display: block;
     color: $light;
@@ -318,8 +327,44 @@
     @include bp(sm) {
       margin-bottom: 12px;
     }
+    &.menu-catalog__mail{
+      margin-top: 26px;
+      margin-bottom: 42px;
+      @include bp(md) {
+        width: 145px;
+        word-break: break-all;
+      }
+      @include bp(sm) {
+        width: auto;
+        margin-top: 12px;
+        margin-bottom: 20px;
+      }
+    }
     &:hover{
       color: $red;
+    }
+  }
+  .menu-catalog__socials{
+    display: flex;
+    justify-content: flex-end;
+    @include bp(sm) {
+      justify-content: center;
+    }
+    li{
+      display: flex;
+      margin-right: 16px;
+      &:last-child{
+        margin-right: 0;
+      }
+      a{
+        &:hover{
+          svg{
+            path{
+              fill: $red;
+            }
+          }
+        }
+      }
     }
   }
   .header-lang{

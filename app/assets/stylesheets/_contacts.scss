@@ -189,36 +189,75 @@
 }
 
 .contacts__address {
-  display: flex;
-  gap: 48px;
-  flex-wrap: wrap;
-  @media (max-width: 833px) {
-    gap: 20px;
-    }
+  width: 535px;
+  max-width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
   @include bp(sm) {
-      flex-wrap: wrap;
+    font-size: 14px;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover{
+      color: $red;
+      text-decoration: none;
     }
-  @include bp(xs) {
-    gap: 17px;
-    margin-bottom: 33px;
-    }
-
-  & a {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 140%;
-    color: #000000;
-    @include bp(sm) {
-      font-size: 14px;
-      }
   }
 
-  & span {
+  >span {
     font-weight: 400;
     font-size: 18px;
     line-height: 140%;
+    display: block;
+    margin-bottom: 32px;
     @include bp(sm) {
-      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.contacts__address-top{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  @include bp(sm) {
+    margin-bottom: 16px;
+  }
+  @include bp(xs) {
+    flex-direction: column;
+  }
+  a{
+    +a{
+      @include bp(xs) {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+.contacts__address-socials{
+  display: flex;
+  @include bp(xs) {
+    margin-bottom: 32px;
+  }
+  li{
+    display: flex;
+    margin-right: 24px;
+    @include bp(xs) {
+      margin-right: 16px;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+    a{
+      &:hover{
+        svg{
+          path{
+            fill: $red;
+          }
+        }
+      }
     }
   }
 }
